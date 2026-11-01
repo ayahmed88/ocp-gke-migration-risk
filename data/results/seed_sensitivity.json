@@ -1,0 +1,130 @@
+[
+ {
+  "seed_base": 42,
+  "model": "Logistic Regression",
+  "f1": 0.634,
+  "std": 0.109,
+  "auc": 0.859,
+  "recall_High": 0.82
+ },
+ {
+  "seed_base": 42,
+  "model": "Random Forest",
+  "f1": 0.539,
+  "std": 0.141,
+  "auc": 0.844,
+  "recall_High": 0.892
+ },
+ {
+  "seed_base": 42,
+  "model": "XGBoost",
+  "f1": 0.592,
+  "std": 0.135,
+  "auc": 0.831,
+  "recall_High": 0.825
+ },
+ {
+  "seed_base": 7,
+  "model": "Logistic Regression",
+  "f1": 0.627,
+  "std": 0.123,
+  "auc": 0.858,
+  "recall_High": 0.806
+ },
+ {
+  "seed_base": 7,
+  "model": "Random Forest",
+  "f1": 0.523,
+  "std": 0.12,
+  "auc": 0.834,
+  "recall_High": 0.855
+ },
+ {
+  "seed_base": 7,
+  "model": "XGBoost",
+  "f1": 0.584,
+  "std": 0.155,
+  "auc": 0.819,
+  "recall_High": 0.791
+ },
+ {
+  "seed_base": 100,
+  "model": "Logistic Regression",
+  "f1": 0.616,
+  "std": 0.094,
+  "auc": 0.854,
+  "recall_High": 0.797
+ },
+ {
+  "seed_base": 100,
+  "model": "Random Forest",
+  "f1": 0.51,
+  "std": 0.113,
+  "auc": 0.826,
+  "recall_High": 0.863
+ },
+ {
+  "seed_base": 100,
+  "model": "XGBoost",
+  "f1": 0.553,
+  "std": 0.112,
+  "auc": 0.825,
+  "recall_High": 0.798
+ },
+ {
+  "seed_base": 2026,
+  "model": "Logistic Regression",
+  "f1": 0.634,
+  "std": 0.127,
+  "auc": 0.865,
+  "recall_High": 0.794
+ },
+ {
+  "seed_base": 2026,
+  "model": "Random Forest",
+  "f1": 0.536,
+  "std": 0.127,
+  "auc": 0.839,
+  "recall_High": 0.883
+ },
+ {
+  "seed_base": 2026,
+  "model": "XGBoost",
+  "f1": 0.574,
+  "std": 0.147,
+  "auc": 0.833,
+  "recall_High": 0.82
+ },
+ {
+  "seed_base": 7,
+  "model": "Dummy (prior)",
+  "f1": 0.238,
+  "std": 0.006,
+  "auc": 0.5,
+  "recall_High": 1.0
+ },
+ {
+  "seed_base": 42,
+  "model": "Dummy (prior)",
+  "f1": 0.238,
+  "std": 0.005,
+  "auc": 0.5,
+  "recall_High": 1.0
+ },
+ {
+  "seed_base": 100,
+  "model": "Dummy (prior)",
+  "f1": 0.238,
+  "std": 0.006,
+  "auc": 0.5,
+  "recall_High": 1.0
+ },
+ {
+  "seed_base": 2026,
+  "model": "Dummy (prior)",
+  "f1": 0.238,
+  "std": 0.005,
+  "auc": 0.5,
+  "recall_High": 1.0
+ }
+]

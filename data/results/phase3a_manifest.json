@@ -1,0 +1,40 @@
+{
+  "experiment": "baseline_grouped_cv",
+  "ts": "2026-10-15T11:47:27",
+  "wall_seconds": 73.9,
+  "dataset": "OCP_GKE_Migration_Risk_Dataset_REAL_176.xlsx",
+  "sheet": "RAW_Dataset_176",
+  "rows": 176,
+  "groups": 88,
+  "selection_pool": {
+    "rows": 140,
+    "services": 70,
+    "vault_excluded": true,
+    "policy": "carve-before-any-comparison (v34)"
+  },
+  "validation": "StratifiedGroupKFold 5-fold x 5 repeats (split seeds 42..46)",
+  "split_seed_base": 42,
+  "imbalance_handling": "class_weight='balanced' (XGBoost: balanced sample_weight per training fold)",
+  "tuning": "none (defaults; Phase 4)",
+  "seed": 42,
+  "primary_metric": "f1_macro (guardrail: recall_High)",
+  "integrity_checks": {
+    "shape_176x27": true,
+    "migration_id_unique": true,
+    "services_88_x2": true,
+    "dev_qa_pair_per_service": true,
+    "no_duplicate_rows": true,
+    "db_type_nan_structural": true,
+    "all_passed": true
+  },
+  "cleaned_ref_verification": {
+    "columns_match": true,
+    "values_match_documented_intent": true
+  },
+  "versions": {
+    "python": "3.13.16",
+    "sklearn": "1.8.0",
+    "xgboost": "3.3.0",
+    "pandas": "3.0.2"
+  }
+}

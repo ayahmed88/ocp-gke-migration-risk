@@ -1,0 +1,512 @@
+{
+ "model": "Logistic Regression (declared primary; defaults, balanced)",
+ "method_note": "Coefficients are the model's exact global logic (odds ratios per one-unit / category change); permutation importance is computed on the same 25 grouped CV folds. Associations used for prediction \u2014 not causal claims.",
+ "fit_scope": "140-record selection pool / 70 services (A2 option 1)",
+ "coefficients_per_class": {
+  "Low": [
+   {
+    "feature": "Service_Category",
+    "label": "Service_Category = API",
+    "coef": 1.0247,
+    "odds_ratio": 2.786
+   },
+   {
+    "feature": "Business_Criticality",
+    "label": "Business_Criticality",
+    "coef": 0.7579,
+    "odds_ratio": 2.134
+   },
+   {
+    "feature": "Environment",
+    "label": "Environment = QA",
+    "coef": 0.5935,
+    "odds_ratio": 1.81
+   },
+   {
+    "feature": "DB_Type",
+    "label": "DB_Type = PostgreSQL",
+    "coef": 0.5361,
+    "odds_ratio": 1.709
+   },
+   {
+    "feature": "Owner_Availability",
+    "label": "Owner_Availability = Available",
+    "coef": 0.3484,
+    "odds_ratio": 1.417
+   },
+   {
+    "feature": "DB_Type",
+    "label": "DB_Type = None",
+    "coef": 0.2604,
+    "odds_ratio": 1.297
+   },
+   {
+    "feature": "Service_Category",
+    "label": "Service_Category = Web",
+    "coef": 0.1635,
+    "odds_ratio": 1.178
+   },
+   {
+    "feature": "Owner_Availability",
+    "label": "Owner_Availability = Delayed",
+    "coef": 0.1089,
+    "odds_ratio": 1.115
+   },
+   {
+    "feature": "Service_Category",
+    "label": "Service_Category = Batch",
+    "coef": 0.0553,
+    "odds_ratio": 1.057
+   },
+   {
+    "feature": "Route_Ingress_Changed",
+    "label": "Route_Ingress_Changed",
+    "coef": -0.0564,
+    "odds_ratio": 0.945
+   },
+   {
+    "feature": "Has_Config_Change",
+    "label": "Has_Config_Change",
+    "coef": -0.0917,
+    "odds_ratio": 0.912
+   },
+   {
+    "feature": "DB_Type",
+    "label": "DB_Type = Oracle",
+    "coef": -0.1096,
+    "odds_ratio": 0.896
+   },
+   {
+    "feature": "Previous_Issues_Count",
+    "label": "Previous_Issues_Count",
+    "coef": -0.1299,
+    "odds_ratio": 0.878
+   },
+   {
+    "feature": "DB_Type",
+    "label": "DB_Type = SQLServer",
+    "coef": -0.3305,
+    "odds_ratio": 0.719
+   },
+   {
+    "feature": "DB_Type",
+    "label": "DB_Type = MySQL",
+    "coef": -0.358,
+    "odds_ratio": 0.699
+   },
+   {
+    "feature": "Owner_Availability",
+    "label": "Owner_Availability = Unknown",
+    "coef": -0.459,
+    "odds_ratio": 0.632
+   },
+   {
+    "feature": "Service_Category",
+    "label": "Service_Category = Microservice",
+    "coef": -0.4871,
+    "odds_ratio": 0.614
+   },
+   {
+    "feature": "External_Integrations_Count",
+    "label": "External_Integrations_Count",
+    "coef": -0.5117,
+    "odds_ratio": 0.6
+   },
+   {
+    "feature": "Has_DB_Dependency",
+    "label": "Has_DB_Dependency",
+    "coef": -0.5497,
+    "odds_ratio": 0.577
+   },
+   {
+    "feature": "Environment",
+    "label": "Environment = Dev",
+    "coef": -0.5951,
+    "odds_ratio": 0.552
+   },
+   {
+    "feature": "Service_Category",
+    "label": "Service_Category = Integration",
+    "coef": -0.7581,
+    "odds_ratio": 0.469
+   },
+   {
+    "feature": "Has_Network_Change",
+    "label": "Has_Network_Change",
+    "coef": -0.9785,
+    "odds_ratio": 0.376
+   },
+   {
+    "feature": "Firewall_Rules_Count",
+    "label": "Firewall_Rules_Count",
+    "coef": -0.991,
+    "odds_ratio": 0.371
+   },
+   {
+    "feature": "Complexity_Level",
+    "label": "Complexity_Level",
+    "coef": -1.2235,
+    "odds_ratio": 0.294
+   }
+  ],
+  "Medium": [
+   {
+    "feature": "Service_Category",
+    "label": "Service_Category = Microservice",
+    "coef": 0.6022,
+    "odds_ratio": 1.826
+   },
+   {
+    "feature": "Service_Category",
+    "label": "Service_Category = Batch",
+    "coef": 0.5253,
+    "odds_ratio": 1.691
+   },
+   {
+    "feature": "DB_Type",
+    "label": "DB_Type = SQLServer",
+    "coef": 0.5056,
+    "odds_ratio": 1.658
+   },
+   {
+    "feature": "Firewall_Rules_Count",
+    "label": "Firewall_Rules_Count",
+    "coef": 0.359,
+    "odds_ratio": 1.432
+   },
+   {
+    "feature": "Owner_Availability",
+    "label": "Owner_Availability = Available",
+    "coef": 0.3314,
+    "odds_ratio": 1.393
+   },
+   {
+    "feature": "Service_Category",
+    "label": "Service_Category = Integration",
+    "coef": 0.2347,
+    "odds_ratio": 1.265
+   },
+   {
+    "feature": "Has_Network_Change",
+    "label": "Has_Network_Change",
+    "coef": 0.2146,
+    "odds_ratio": 1.239
+   },
+   {
+    "feature": "Complexity_Level",
+    "label": "Complexity_Level",
+    "coef": 0.1234,
+    "odds_ratio": 1.131
+   },
+   {
+    "feature": "Environment",
+    "label": "Environment = Dev",
+    "coef": 0.1153,
+    "odds_ratio": 1.122
+   },
+   {
+    "feature": "DB_Type",
+    "label": "DB_Type = MySQL",
+    "coef": 0.0892,
+    "odds_ratio": 1.093
+   },
+   {
+    "feature": "DB_Type",
+    "label": "DB_Type = None",
+    "coef": 0.056,
+    "odds_ratio": 1.058
+   },
+   {
+    "feature": "External_Integrations_Count",
+    "label": "External_Integrations_Count",
+    "coef": 0.0161,
+    "odds_ratio": 1.016
+   },
+   {
+    "feature": "Has_Config_Change",
+    "label": "Has_Config_Change",
+    "coef": 0.0049,
+    "odds_ratio": 1.005
+   },
+   {
+    "feature": "Route_Ingress_Changed",
+    "label": "Route_Ingress_Changed",
+    "coef": -0.0091,
+    "odds_ratio": 0.991
+   },
+   {
+    "feature": "Owner_Availability",
+    "label": "Owner_Availability = Unknown",
+    "coef": -0.0686,
+    "odds_ratio": 0.934
+   },
+   {
+    "feature": "Has_DB_Dependency",
+    "label": "Has_DB_Dependency",
+    "coef": -0.1283,
+    "odds_ratio": 0.88
+   },
+   {
+    "feature": "Environment",
+    "label": "Environment = QA",
+    "coef": -0.1295,
+    "odds_ratio": 0.879
+   },
+   {
+    "feature": "Owner_Availability",
+    "label": "Owner_Availability = Delayed",
+    "coef": -0.2771,
+    "odds_ratio": 0.758
+   },
+   {
+    "feature": "DB_Type",
+    "label": "DB_Type = Oracle",
+    "coef": -0.2817,
+    "odds_ratio": 0.755
+   },
+   {
+    "feature": "Service_Category",
+    "label": "Service_Category = Web",
+    "coef": -0.2871,
+    "odds_ratio": 0.75
+   },
+   {
+    "feature": "DB_Type",
+    "label": "DB_Type = PostgreSQL",
+    "coef": -0.3834,
+    "odds_ratio": 0.682
+   },
+   {
+    "feature": "Previous_Issues_Count",
+    "label": "Previous_Issues_Count",
+    "coef": -0.5605,
+    "odds_ratio": 0.571
+   },
+   {
+    "feature": "Service_Category",
+    "label": "Service_Category = API",
+    "coef": -1.0893,
+    "odds_ratio": 0.336
+   },
+   {
+    "feature": "Business_Criticality",
+    "label": "Business_Criticality",
+    "coef": -1.1383,
+    "odds_ratio": 0.32
+   }
+  ],
+  "High": [
+   {
+    "feature": "Complexity_Level",
+    "label": "Complexity_Level",
+    "coef": 1.1001,
+    "odds_ratio": 3.004
+   },
+   {
+    "feature": "Has_Network_Change",
+    "label": "Has_Network_Change",
+    "coef": 0.7639,
+    "odds_ratio": 2.147
+   },
+   {
+    "feature": "Previous_Issues_Count",
+    "label": "Previous_Issues_Count",
+    "coef": 0.6904,
+    "odds_ratio": 1.994
+   },
+   {
+    "feature": "Has_DB_Dependency",
+    "label": "Has_DB_Dependency",
+    "coef": 0.6781,
+    "odds_ratio": 1.97
+   },
+   {
+    "feature": "Firewall_Rules_Count",
+    "label": "Firewall_Rules_Count",
+    "coef": 0.632,
+    "odds_ratio": 1.881
+   },
+   {
+    "feature": "Owner_Availability",
+    "label": "Owner_Availability = Unknown",
+    "coef": 0.5275,
+    "odds_ratio": 1.695
+   },
+   {
+    "feature": "Service_Category",
+    "label": "Service_Category = Integration",
+    "coef": 0.5234,
+    "odds_ratio": 1.688
+   },
+   {
+    "feature": "External_Integrations_Count",
+    "label": "External_Integrations_Count",
+    "coef": 0.4956,
+    "odds_ratio": 1.641
+   },
+   {
+    "feature": "Environment",
+    "label": "Environment = Dev",
+    "coef": 0.4798,
+    "odds_ratio": 1.616
+   },
+   {
+    "feature": "DB_Type",
+    "label": "DB_Type = Oracle",
+    "coef": 0.3913,
+    "odds_ratio": 1.479
+   },
+   {
+    "feature": "Business_Criticality",
+    "label": "Business_Criticality",
+    "coef": 0.3803,
+    "odds_ratio": 1.463
+   },
+   {
+    "feature": "DB_Type",
+    "label": "DB_Type = MySQL",
+    "coef": 0.2687,
+    "odds_ratio": 1.308
+   },
+   {
+    "feature": "Owner_Availability",
+    "label": "Owner_Availability = Delayed",
+    "coef": 0.1682,
+    "odds_ratio": 1.183
+   },
+   {
+    "feature": "Service_Category",
+    "label": "Service_Category = Web",
+    "coef": 0.1236,
+    "odds_ratio": 1.132
+   },
+   {
+    "feature": "Has_Config_Change",
+    "label": "Has_Config_Change",
+    "coef": 0.0868,
+    "odds_ratio": 1.091
+   },
+   {
+    "feature": "Route_Ingress_Changed",
+    "label": "Route_Ingress_Changed",
+    "coef": 0.0655,
+    "odds_ratio": 1.068
+   },
+   {
+    "feature": "Service_Category",
+    "label": "Service_Category = API",
+    "coef": 0.0646,
+    "odds_ratio": 1.067
+   },
+   {
+    "feature": "Service_Category",
+    "label": "Service_Category = Microservice",
+    "coef": -0.1151,
+    "odds_ratio": 0.891
+   },
+   {
+    "feature": "DB_Type",
+    "label": "DB_Type = PostgreSQL",
+    "coef": -0.1526,
+    "odds_ratio": 0.858
+   },
+   {
+    "feature": "DB_Type",
+    "label": "DB_Type = SQLServer",
+    "coef": -0.1751,
+    "odds_ratio": 0.839
+   },
+   {
+    "feature": "DB_Type",
+    "label": "DB_Type = None",
+    "coef": -0.3164,
+    "odds_ratio": 0.729
+   },
+   {
+    "feature": "Environment",
+    "label": "Environment = QA",
+    "coef": -0.4639,
+    "odds_ratio": 0.629
+   },
+   {
+    "feature": "Service_Category",
+    "label": "Service_Category = Batch",
+    "coef": -0.5806,
+    "odds_ratio": 0.56
+   },
+   {
+    "feature": "Owner_Availability",
+    "label": "Owner_Availability = Available",
+    "coef": -0.6798,
+    "odds_ratio": 0.507
+   }
+  ]
+ },
+ "permutation_importance": [
+  {
+   "feature": "Business_Criticality",
+   "f1_drop_mean": 0.0772,
+   "f1_drop_std": 0.0711
+  },
+  {
+   "feature": "Complexity_Level",
+   "f1_drop_mean": 0.0599,
+   "f1_drop_std": 0.0761
+  },
+  {
+   "feature": "Previous_Issues_Count",
+   "f1_drop_mean": 0.0539,
+   "f1_drop_std": 0.0627
+  },
+  {
+   "feature": "Has_Network_Change",
+   "f1_drop_mean": 0.0424,
+   "f1_drop_std": 0.0768
+  },
+  {
+   "feature": "Firewall_Rules_Count",
+   "f1_drop_mean": 0.0424,
+   "f1_drop_std": 0.0636
+  },
+  {
+   "feature": "External_Integrations_Count",
+   "f1_drop_mean": 0.0377,
+   "f1_drop_std": 0.0658
+  },
+  {
+   "feature": "Service_Category",
+   "f1_drop_mean": 0.0363,
+   "f1_drop_std": 0.0647
+  },
+  {
+   "feature": "Has_DB_Dependency",
+   "f1_drop_mean": 0.0298,
+   "f1_drop_std": 0.0658
+  },
+  {
+   "feature": "Environment",
+   "f1_drop_mean": 0.0155,
+   "f1_drop_std": 0.0643
+  },
+  {
+   "feature": "Owner_Availability",
+   "f1_drop_mean": 0.0039,
+   "f1_drop_std": 0.0336
+  },
+  {
+   "feature": "Has_Config_Change",
+   "f1_drop_mean": 0.0033,
+   "f1_drop_std": 0.0444
+  },
+  {
+   "feature": "Route_Ingress_Changed",
+   "f1_drop_mean": -0.0043,
+   "f1_drop_std": 0.0322
+  },
+  {
+   "feature": "DB_Type",
+   "f1_drop_mean": -0.0054,
+   "f1_drop_std": 0.0712
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+# real research data is never committed
+data/raw/*.xlsx
+data/processed/*
+!data/processed/.gitkeep
+data/artifacts/*
+!data/artifacts/.gitkeep
+# python / node
+__pycache__/
+*.pyc
+.pytest_cache/
+frontend/node_modules/
+.venv/
+venv/
+*.log
+.DS_Store

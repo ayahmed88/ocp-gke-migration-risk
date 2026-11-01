@@ -1,0 +1,47 @@
+{
+ "generated_at": "2026-10-15T10:57:18",
+ "scope": "140-record / 70-service selection pool (vault untouched)",
+ "protocol": "StratifiedGroupKFold 5x5, seeds 42..46, paired folds",
+ "models": {
+  "Logistic Regression": {
+   "declared_mean": 0.634,
+   "declared_std": 0.109,
+   "tuned_mean": 0.6381,
+   "tuned_std": 0.106,
+   "delta_mean": 0.0041,
+   "modal_params": {
+    "clf__C": 0.2
+   },
+   "modal_count": "7/25",
+   "official_reproduced_exactly": true
+  },
+  "Random Forest": {
+   "declared_mean": 0.5387,
+   "declared_std": 0.1412,
+   "tuned_mean": 0.579,
+   "tuned_std": 0.1303,
+   "delta_mean": 0.0404,
+   "modal_params": {
+    "clf__max_depth": null,
+    "clf__max_features": "sqrt",
+    "clf__min_samples_leaf": 3
+   },
+   "modal_count": "9/25",
+   "official_reproduced_exactly": true
+  },
+  "XGBoost": {
+   "declared_mean": 0.5915,
+   "declared_std": 0.1351,
+   "tuned_mean": 0.5832,
+   "tuned_std": 0.1224,
+   "delta_mean": -0.0083,
+   "modal_params": {
+    "clf__learning_rate": 0.05,
+    "clf__max_depth": 4
+   },
+   "modal_count": "6/25",
+   "official_reproduced_exactly": true
+  }
+ },
+ "conclusion": "Tuning on the pool changes nothing material: every delta is far below the fold std (~0.11-0.14), parameter selection stays unstable (modal <= 9/25), and the ranking is unchanged - Logistic Regression first with or without tuning (verified: True). The declared default configurations remain justified, now at the baseline's own data scope."
+}

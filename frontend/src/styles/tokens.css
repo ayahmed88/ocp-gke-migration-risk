@@ -1,0 +1,45 @@
+/* Design tokens — single source for both themes. Charts & UI read only these. */
+:root {
+  --font-ar: 'Cairo', sans-serif;
+  --font-en: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --bg: #F6F7F9;            /* cool paper — deliberately not warm cream */
+  --surface: #FFFFFF;
+  --surface-2: #EEF1F4;
+  --ink: #1B2733;
+  --ink-2: #5A6B7B;
+  --line: #DDE3E9;
+
+  --accent: #0F7B7C;        /* operations teal */
+  --accent-ink: #FFFFFF;
+  --copper: #B4652F;        /* signature accent, used sparingly */
+
+  --risk-low: #3A9B6E;
+  --risk-medium: #C8871E;
+  --risk-high: #C6423F;
+  --ok: #2E7D57;
+
+  --accent-glow: rgba(15,123,124,.22);
+  --bgfx-a: #F6F7F9; --bgfx-b: #EEF3F5; --dot: rgba(20,60,70,.05);
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(16,24,32,.06), 0 4px 14px rgba(16,24,32,.05);
+}
+[data-theme="dark"] {
+  --accent-glow: rgba(43,179,174,.30);
+  --bgfx-a: #0B1420; --bgfx-b: #122236; --dot: rgba(90,140,170,.07);
+  --bg: #0E1420;            /* control-plane navy */
+  --surface: #161F2D;
+  --surface-2: #1E2938;
+  --ink: #E8EDF3;
+  --ink-2: #93A3B4;
+  --line: #263447;
+  --accent: #2BB3AE;
+  --accent-ink: #08201F;
+  --copper: #D08A50;
+  --risk-low: #4CB284;
+  --risk-medium: #DCA033;
+  --risk-high: #E05B57;
+  --ok: #4CB284;
+  --shadow: 0 1px 2px rgba(0,0,0,.35), 0 6px 18px rgba(0,0,0,.3);
+}

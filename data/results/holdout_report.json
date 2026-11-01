@@ -1,0 +1,52 @@
+{
+ "locked": true,
+ "seed": 42,
+ "model": "Logistic Regression (declared winner, defaults)",
+ "split": "GroupShuffleSplit 80/20 by Service_Code \u2014 evaluated once",
+ "train_rows": 140,
+ "test_rows": 36,
+ "train_services": 70,
+ "test_services": 18,
+ "test_class_counts": {
+  "Low": 3,
+  "Medium": 18,
+  "High": 15
+ },
+ "metrics": {
+  "macro_f1": 0.559,
+  "accuracy": 0.611,
+  "balanced_accuracy": 0.626,
+  "auc_ovr_macro": 0.828,
+  "recall_per_class": {
+   "Low": 0.667,
+   "Medium": 0.611,
+   "High": 0.6
+  }
+ },
+ "confusion": {
+  "labels": [
+   "Low",
+   "Medium",
+   "High"
+  ],
+  "matrix": [
+   [
+    2,
+    1,
+    0
+   ],
+   [
+    4,
+    11,
+    3
+   ],
+   [
+    2,
+    4,
+    9
+   ]
+  ]
+ },
+ "generated_at": "2026-07-11T22:17:54",
+ "note": "Single locked evaluation for the defense; the thesis headline remains the 25-fold grouped CV."
+}

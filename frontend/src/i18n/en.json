@@ -1,0 +1,451 @@
+{
+  "app": {
+    "title": "Cloud Migration Risk Prediction Framework",
+    "subtitle": "OCP → GKE · real enterprise data (176 records)",
+    "build": "Build 3C",
+    "footer": "MSc Research — Ahmed Yaseen Abdelgader · Sudan University of Science and Technology · Supervised by Dr. Ghada Shammo",
+    "modePresent": "Presentation",
+    "modeExpert": "Expert"
+  },
+  "nav": {
+    "dashboard": "Overview",
+    "training": "Live training",
+    "results": "Evaluation results",
+    "predict": "New case prediction",
+    "models": "Model registry",
+    "xai": "Explainability (XAI)",
+    "recommend": "Recommendations",
+    "progress": "Research progress",
+    "dictionary": "Data dictionary",
+    "quality": "Data quality",
+    "exports": "Exports",
+    "present": "Defense presentation",
+    "docsguide": "Quick guide",
+    "vault": "File vault"
+  },
+  "common": {
+    "loading": "Loading…",
+    "error": "Something went wrong",
+    "refresh": "Refresh",
+    "seconds": "s",
+    "records": "records",
+    "services": "services",
+    "best": "best",
+    "close": "Close"
+  },
+  "dash": {
+    "title": "Dataset overview",
+    "rows": "Migration records",
+    "services": "Services",
+    "envs": "Environments",
+    "risk": "Risk level distribution (primary target)",
+    "outcome": "Execution outcome distribution (secondary target)",
+    "integrity": "Data integrity gates",
+    "integrityPass": "All checks passed",
+    "oracle": "Cleaning vs CLEANED reference",
+    "oraclePass": "Exact match — the hand-made sheet now verifies the code",
+    "features": "Feature sets",
+    "preexec": "Pre-execution (headline)",
+    "full": "Full (secondary)",
+    "dlData": "Download dataset (xlsx)",
+    "cols27": "All 27 columns documented in the Data dictionary"
+  },
+  "train": {
+    "title": "Live training & evaluation",
+    "desc": "StratifiedGroupKFold 5 folds × 5 repeats · grouped by service · balanced class weights",
+    "start": "Run experiment",
+    "running": "Experiment running…",
+    "attach": "Attach to running experiment",
+    "foldTape": "Fold tape (25)",
+    "done": "Experiment finished",
+    "viewResults": "View results",
+    "model": "Model",
+    "config": "Configuration",
+    "err": "Experiment failed",
+    "seedLabel": "Split seed (optional)",
+    "seedPh": "default 42 — try any number",
+    "elapsed": "Elapsed",
+    "doneIn": "Done in",
+    "left": "about",
+    "lastRun": "Last run finished in",
+    "seeResults": "Open evaluation results",
+    "resume": "Resumed — the experiment is running in the background",
+    "lastAt": "Last training",
+    "seedTag": "seed",
+    "declared": "(declared 42)"
+  },
+  "res": {
+    "title": "Comparative evaluation results",
+    "empty": "No results yet — run the experiment from the Live training page.",
+    "manifest": "Experiment fingerprint",
+    "validation": "Validation design",
+    "seed": "Seed",
+    "tuning": "Tuning",
+    "tuningNone": "none (Phase 4)",
+    "primary": "Primary metric",
+    "cols": {
+      "model": "Model",
+      "f1": "Macro-F1",
+      "acc": "Accuracy",
+      "bacc": "Balanced acc.",
+      "auc": "AUC",
+      "time": "Fit time"
+    },
+    "recall": "Per-class recall",
+    "seedLine": "This experiment's seed",
+    "declared": "(declared 42)",
+    "lowNote": "Methodological note: Low-class estimates rest on only 15 records / 11 services — read as a directional signal, not a stable measurement."
+  },
+  "pred": {
+    "title": "Predict risk for a new migration case",
+    "needModels": "No serving models yet. Train the final models first.",
+    "trainNow": "Train final models (13 pre-execution features)",
+    "model": "Prediction model",
+    "submit": "Compute risk",
+    "resultTitle": "Prediction result",
+    "meter": "Risk meter",
+    "probs": "Class probabilities",
+    "disclaimer": "Decision-support output — final approval rests with human experts.",
+    "fields": {
+      "Environment": "Environment",
+      "Service_Category": "Service category",
+      "Business_Criticality": "Business criticality",
+      "Complexity_Level": "Complexity level (1–5)",
+      "Has_DB_Dependency": "Database dependency",
+      "DB_Type": "Database type",
+      "Has_Network_Change": "Network change required",
+      "Firewall_Rules_Count": "Firewall rules count",
+      "External_Integrations_Count": "External integrations count",
+      "Route_Ingress_Changed": "Route/Ingress changed",
+      "Has_Config_Change": "Environment config change",
+      "Owner_Availability": "Owner availability",
+      "Previous_Issues_Count": "Previous issues count"
+    },
+    "yes": "Yes",
+    "no": "No",
+    "why": "Why this classification?",
+    "whyNote": "Exact linear additive attribution toward the predicted class (positive pushes toward it).",
+    "tagPrimary": "(primary)",
+    "tagRF": "high-sensitivity alternative — High 0.892",
+    "tagXGB": "for comparison",
+    "trainBtn": "⏱ Go to Live training / Restore",
+    "whyMore": "Show all contributions ▾",
+    "whyLess": "Collapse ▴"
+  },
+  "models": {
+    "title": "Final model registry",
+    "empty": "Registry is empty — train serving models first.",
+    "train": "Train final models",
+    "cfg": "Configuration",
+    "cols": {
+      "algo": "Algorithm",
+      "config": "Config",
+      "target": "Target",
+      "rows": "Training rows",
+      "at": "Trained at",
+      "id": "ID"
+    },
+    "note": "Final models are fitted on all records for serving; quality figures always reference the grouped-CV results."
+  },
+  "risk": {
+    "Low": "Low",
+    "Medium": "Medium",
+    "High": "High"
+  },
+  "outcome": {
+    "Success": "Success",
+    "Delayed": "Delayed",
+    "Failed": "Failed"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "xai": {
+    "title": "Explainable AI — primary model",
+    "winner": "Declared model: Logistic Regression (defaults, balanced weights)",
+    "classSel": "Show drivers for class:",
+    "raise": "Raises the odds toward",
+    "lower": "Lowers the odds",
+    "or": "odds ratio",
+    "perm": "Grouped permutation importance (Macro-F1 drop when the feature is shuffled)",
+    "permNote": "Computed on the same 25 evaluation folds — values are small with wide spread at this sample size; the ranking is the information.",
+    "disclaimer": "Associations the model relies on for prediction — not causal claims.",
+    "empty": "No explanations yet — this page is computed automatically when live training or restore completes",
+    "bestLow": "best Low-class recall",
+    "fitScope": "Explanation fit scope"
+  },
+  "rec": {
+    "nav": "Recommendations",
+    "title": "Recommendation engine — rulebook",
+    "sub": "Deterministic and traceable: every recommendation carries its rule, the firing values, and its historical evidence. No generated text.",
+    "because": "because",
+    "evidence": "Historical evidence",
+    "stage": {
+      "pre_execution": "pre-execution",
+      "execution": "execution",
+      "post_prediction": "from prediction",
+      "fallback": "fallback"
+    },
+    "prio": {
+      "high": "high",
+      "medium": "medium",
+      "low": "low"
+    },
+    "trigger": "Trigger",
+    "gov": "Layer separation: ML prediction → explanation → rule-based recommendation → human expert decision. The system supports the decision; it never replaces expert sign-off.",
+    "predTitle": "Recommended actions",
+    "notEval": "Rules requiring execution-phase signals (not evaluated now):",
+    "actions": {
+      "validate_db_connectivity": {
+        "name": "Validate DB connectivity",
+        "desc": "Database readiness, credentials and connection paths before cutover"
+      },
+      "verify_firewall_network_rules": {
+        "name": "Verify firewall / network rules",
+        "desc": "Approve and open required rules; verify routes"
+      },
+      "confirm_owner_availability": {
+        "name": "Confirm owner availability",
+        "desc": "Owner present during the migration window for instant decisions"
+      },
+      "review_env_configuration": {
+        "name": "Review environment-specific configuration",
+        "desc": "Config deltas between environments before validation"
+      },
+      "review_image_build_pipeline": {
+        "name": "Review image build pipeline",
+        "desc": "Address observed container build issues"
+      },
+      "test_external_integrations": {
+        "name": "Test external integrations",
+        "desc": "End-to-end checks of integration points before cutover"
+      },
+      "extended_validation_window": {
+        "name": "Schedule extended validation window",
+        "desc": "Extra validation time and enhanced monitoring for high-risk cases"
+      },
+      "standard_checklist": {
+        "name": "Standard validation & cutover checklist",
+        "desc": "Default procedure when no specific trigger fires"
+      }
+    }
+  },
+  "dict": {
+    "title": "Data Dictionary (27 columns)",
+    "cols": [
+      "Column",
+      "Meaning",
+      "Type",
+      "Values",
+      "Missing",
+      "Unique",
+      "Role",
+      "Pre-exec?",
+      "Leakage",
+      "Encoding/Exclusion",
+      "Static per service?"
+    ],
+    "search": "Search column or meaning…",
+    "official": "official",
+    "legend": "The 13 official pre-execution features are highlighted"
+  },
+  "qual": {
+    "title": "Data quality & validation",
+    "pending": "Pending decisions (no edits until you decide)",
+    "status": {
+      "PASS": "PASS",
+      "REVIEW": "REVIEW",
+      "FAIL": "FAIL"
+    }
+  },
+  "prog": {
+    "title": "Research progress",
+    "overall": "Overall completion",
+    "auto": "auto from live system state",
+    "edit": "Checklist is editable at",
+    "done": "done",
+    "remain": "remaining",
+    "items": "items done",
+    "groups": "groups at 100%",
+    "live": "live from system state",
+    "writingDone": "Thesis writing complete — front matter to conclusions, every chapter at 100%"
+  },
+  "exp": {
+    "title": "Academic exports — Thesis figures & tables",
+    "gen": "Generate / refresh package",
+    "note": "300 dpi · generated live from repository results · English per deliverable policy",
+    "dl": "download",
+    "none": "No files yet — click generate.",
+    "attach": "Package files — tables & docs (captions · manifest)"
+  },
+  "mode": {
+    "demo": "Demo mode · saved results",
+    "live": "Live training running…",
+    "reset": "Session reset · awaiting training"
+  },
+  "pres": {
+    "title": "Guided defense presentation",
+    "sub": "Six safe steps in a fixed order — navigate with the two buttons; everything runs live.",
+    "next": "Next ←",
+    "prev": "→ Previous",
+    "step": "Step",
+    "s1": "System & experiment card",
+    "s2": "The real dataset",
+    "s3": "Methodology in two lines",
+    "s4": "Locked holdout (unseen data)",
+    "s5": "Live prediction now",
+    "s6": "Closing & governance",
+    "sysVer": "Version",
+    "sysData": "Dataset",
+    "sysModel": "Serving model",
+    "sysTrained": "Trained at",
+    "sysResults": "Experiment results at",
+    "sysSeed": "Seed",
+    "meth": "Evaluation: StratifiedGroupKFold 5 folds × 5 repeats grouped by service (a service's two rows never straddle train/test) · prediction from the 13 pre-execution features only · balanced class weights.",
+    "holdNote": "Fully independent locked evaluation (v34): 20% of services were carved out before any comparison; all selection ran on the 80% only, then the winner was evaluated exactly once on a vault that influenced no decision.",
+    "holdRows": "unseen records",
+    "holdSvc": "unseen services",
+    "cmTitle": "Confusion matrix (actual ↓ / predicted →)",
+    "runPred": "Run the live prediction (showcase case MIG-006)",
+    "predWhy": "Top-3 fired recommendations with their rules:",
+    "closing": "“The system predicts before execution, explains its prediction number by number, and recommends actions derived from the migration team's own rules — fully reproducible with a fixed seed, supporting expert decisions, never replacing them.”",
+    "panel": "Presentation control panel",
+    "reset": "Reset demo session",
+    "resetArm": "Sure? Click to confirm",
+    "resetBusy": "Resetting…",
+    "resetNote": "Clears serving models, results and the XAI cache only — data and the sealed holdout are untouched.",
+    "restore": "One-click restore",
+    "restoreBusy": "Rebuilding… watch the tape on the Training page",
+    "randomBtn": "Draw a random case from the vault",
+    "rcTrue": "Expert label",
+    "rcPred": "Model prediction",
+    "rcMatch": "Match ✓",
+    "rcMiss": "Mismatch ✗",
+    "rcNote": "Drawn from the sealed 36 records the model never trained on.",
+    "vaultRecs": "Vault records (36)",
+    "vrSeal": "Deterministically derived from the seed — matches the seal",
+    "vrHits": "Vault-model hits",
+    "vrSvc": "Service",
+    "vrRec": "Record",
+    "vrEnv": "Env",
+    "s5pick": "Or pick any record from the sealed vault — never seen by the model:",
+    "s5run": "Predict selected",
+    "s5free": "Or try a case with your own values →",
+    "s5choose": "Pick or paste a vault record id…",
+    "s5notVault": "This id is not one of the 36 sealed-vault records",
+    "s5sealed": "Predictions here come from the sealed vault model — independent of the training session",
+    "short": {
+      "s1": "System card",
+      "s2": "Real data",
+      "s3": "Methodology",
+      "s4": "Sealed vault",
+      "s5": "Live predict",
+      "s6": "Closing"
+    },
+    "cue": {
+      "s1": "A safe six-step path — and we will break its order on request: everything is live.",
+      "s2": "These are 176 real, anonymized enterprise migration cases — every number is computed from them live.",
+      "s3": "Macro-F1 is the pre-declared judge because it is fair to the rare class; splits are grouped by service.",
+      "s4": "Before any comparison, a 20% vault was carved and sealed — opened once: 0.559 on never-seen services.",
+      "s5": "Live prediction now: the reference case, any sealed-vault record you pick, or a case with your values.",
+      "s6": "The system supports the decision, never replaces the expert — and every number regenerates before you."
+    },
+    "cueLbl": "Your line here"
+  },
+  "docsg": {
+    "title": "Quick guide",
+    "run": "Running the system",
+    "modeT": "The two modes",
+    "modeTxt": "Demo mode (default): the system serves the saved models and results of the last approved experiment instantly. Live training: the Live-training page re-executes the full experiment from scratch with the same methodology and seed; the top indicator switches automatically while running and reverts on completion.",
+    "fb": "Running directly without Docker",
+    "fbTxt": "The system can run in a plain Python environment via uvicorn using the commands below, with identical functionality. A one-line terminal walkthrough of the algorithms is also available.",
+    "links": "Links & resources",
+    "api": "API reference (Swagger)",
+    "manualBtn": "User manual (Word)",
+    "exports": "Exports page (Chapter-4 assets)",
+    "dataBtn": "Download dataset (xlsx)"
+  },
+  "vault": {
+    "title": "File vault — versions with dates & notes",
+    "sub": "Local version history for research documents: upload, note what changed, download any version. Reminder: not a cloud backup — keep the project folder inside OneDrive/Drive.",
+    "choose": "Choose a file",
+    "note": "What changed in this version?",
+    "upload": "Upload version",
+    "uploading": "Uploading…",
+    "latest": "Latest",
+    "history": "Version history",
+    "dl": "Download",
+    "ver": "ver",
+    "at": "Date",
+    "size": "Size",
+    "empty": "Vault is empty — upload the first document.",
+    "uploaded": "Version uploaded"
+  },
+  "intro": {
+    "label": "About this page",
+    "dashboard": "The data gateway: where it came from, its size and class balance — every number computed live from the real project file.",
+    "progress": "Thesis progress map: done vs remaining — some items auto-color from the system's own state.",
+    "present": "The safe session path: six fixed steps covering the whole story, with one-click reset and restore.",
+    "training": "The system's heart: the full experiment (300 trainings) replays before your eyes with any seed — progress and timings live.",
+    "results": "The verdict tables: models compared under one strict protocol. Presentation mode leads with the hero; Expert mode shows full tables.",
+    "xai": "Why the model decides as it does: learned weights and feature importance — associations for prediction, not causal claims.",
+    "predict": "The decision tool: enter a migration case with your values and get the verdict, probabilities, reasons and actions.",
+    "recommend": "A codified expert system: eight transparent rules with historical evidence from the data itself — no generated text.",
+    "dictionary": "The 27-column reference: each column's meaning and role — the 13 official features highlighted.",
+    "quality": "Data integrity gates and documented cleaning decisions — even pending calls are shown transparently.",
+    "exports": "Chapter-4 outputs: thesis figures and tables generated live from the system's results.",
+    "vault": "A local versioned store for research documents — upload, note what changed, download any version.",
+    "models": "Serving-model archive: every model that ever served a prediction, documented with identity and fit scope.",
+    "docsguide": "In-app documentation: running the system, the two modes, links and the user manual."
+  },
+  "gloss": {
+    "macroF1": "Mean F1 across the three classes with equal weight — the majority cannot drown the rare class. The pre-declared primary metric.",
+    "auc": "Quality of probability ranking across all thresholds (one-vs-rest, macro-averaged).",
+    "protocol": "Grouped stratified split: a service's Dev/QA twins never separate across train/test; 5 folds × 5 repeats = 25 exams per model; balanced class weights protect the rare class.",
+    "manifest": "The experiment's full identity: data, seed, methodology, library versions — for literal reproducibility.",
+    "seed": "A number that pins randomness so the experiment reproduces its exact figures on any machine. Declared 42; the field accepts any number."
+  },
+  "cfg": {
+    "A_Risk_PRE-EXEC": {
+      "name": "Official question — risk before execution",
+      "sub": "The model sees only the 13 pre-execution features: the real decision scenario."
+    },
+    "B_Risk_FULL": {
+      "name": "Reference ceiling — all features",
+      "sub": "How much does execution information add? A value-of-information gauge, not the official scenario."
+    },
+    "C_Outcome_PRE-EXEC": {
+      "name": "Secondary target — predicting the outcome",
+      "sub": "Can the outcome be predicted early? The weak answer here is an honestly declared finding."
+    }
+  },
+  "mdl": {
+    "Logistic Regression": "Logistic Regression",
+    "Random Forest": "Random Forest",
+    "XGBoost": "XGBoost",
+    "Dummy (prior)": "Blind baseline"
+  },
+  "hero": {
+    "lead": "Pre-declared primary metric",
+    "over": "×{{x}} above the blind baseline — and the lead holds at every seed tried (42/7/100/2026)",
+    "vault": "Independent sealed test: Macro-F1 {{f}} · {{h}}/36 hits — on services the model never saw",
+    "details": "Full details",
+    "hide": "Hide details",
+    "acc": "Accuracy",
+    "banner": "Behind this screen",
+    "bRecords": "real records",
+    "bTrain": "trainings per experiment",
+    "bExams": "exams per model",
+    "bTests": "automated tests green",
+    "bBuilds": "documented builds"
+  },
+  "gates": {
+    "shape_176x27": "Shape 176×27 intact",
+    "migration_id_unique": "Migration IDs unique",
+    "services_88_x2": "88 services × two envs",
+    "dev_qa_pair_per_service": "Dev/QA twins per service",
+    "no_duplicate_rows": "No duplicate rows",
+    "db_type_nan_structural": "DB_Type gaps structural (documented)"
+  }
+}

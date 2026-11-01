@@ -1,0 +1,16 @@
+# Paper analyses and figures
+
+Everything here imports the application code unchanged (`backend/...`) and re-runs the study's own pipeline, service-grouped split and model factory. With the real dataset in place, `reviewer_analyses.py` first reproduces the official 25-fold macro-F1 values bit for bit (LR 0.6339526050735212, XGBoost 0.5915302092371963, RF 0.5386608264991757) and the locked holdout confusion matrix, and stops if it cannot; only then does it run the additional analyses reported in the paper (label vs recorded outcomes, heuristic baselines, paired fold-level tests, holdout bootstrap, two-way rule audit, same-service Dev-label baseline, threshold analysis, ordinal metrics). `qa_compare.py` and `owner_sensitivity.py` hold the subset and the Owner_Availability sensitivity analyses. Results used in the paper are in `results/`.
+
+```bash
+pip install -r paper/requirements-pinned.txt      # the exact library versions of the study (see Appendix A of the paper)
+python paper/reviewer_analyses.py
+python paper/qa_compare.py
+python paper/owner_sensitivity.py
+python paper/figures/make_figures.py              # Figures 1-5 (needs the real workbook for Figure 1 and the class counts; every plotted value is asserted)
+python paper/figures/make_fig6.py                 # Figures 6-7 (architecture; annotated screen)
+```
+
+Which file holds which number: `results/reviewer_analyses.json` is the main run (its B2 paired differences use the population SD, ddof = 0, and its subset scores use the labels present in each fold); `results/table5_sd.json` gives the Table 5 differences with the sample SD (ddof = 1) used in the paper; `results/recheck_v4.json` gives the fixed-label subset scores quoted in Section 4.5 (Dev rows 0.624 ± 0.151) and the like-for-like threshold comparison of Section 4.3; `results/owner_sensitivity*.json` and `results/r2_fixes_numbers.json` give the Owner_Availability sensitivity figures of Section 4.6 and the Low-record counts of Section 4.5.
+
+On the synthetic example the reproduction gate fails by design (the numbers belong to the real data); the scripts then exit with the gate assertion. The scripts are provided so that reviewers can read exactly what was computed and run it on the real data under the organization's authorization.

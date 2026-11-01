@@ -1,0 +1,121 @@
+{
+ "version": "v45",
+ "generated_at": "2026-10-10T15:04:48",
+ "dpi": 300,
+ "formats": [
+  "png",
+  "svg"
+ ],
+ "font": "Times New Roman (serif fallback: Liberation/DejaVu Serif)",
+ "files": [
+  "captions.md",
+  "fig_confusion_holdout.png",
+  "fig_confusion_holdout.svg",
+  "fig_confusion_winner_oof.png",
+  "fig_confusion_winner_oof.svg",
+  "fig_model_comparison_preexec.png",
+  "fig_model_comparison_preexec.svg",
+  "fig_permutation_importance.png",
+  "fig_permutation_importance.svg",
+  "fig_risk_distribution.png",
+  "fig_risk_distribution.svg",
+  "fig_roc_winner.png",
+  "fig_roc_winner.svg",
+  "fig_seed_stability.png",
+  "fig_seed_stability.svg",
+  "fig_top_drivers_high.png",
+  "fig_top_drivers_high.svg",
+  "table_confusion_winner_oof.csv",
+  "table_holdout_predictions.csv",
+  "table_model_comparison_all_configs.csv",
+  "manifest.json"
+ ],
+ "figures": [
+  {
+   "file": "fig_risk_distribution",
+   "data_source": "full dataset (176 records / 88 services) \u2014 class distribution of the primary target",
+   "numbers": {
+    "n": 176,
+    "High": 93,
+    "Medium": 68,
+    "Low": 15
+   },
+   "version": "v45",
+   "generated_at": "2026-10-10T15:04:46"
+  },
+  {
+   "file": "fig_model_comparison_preexec",
+   "data_source": "official phase3a_baseline_results.csv \u2014 selection pool 140/70, config A",
+   "numbers": {
+    "Dummy (prior)": 0.2384,
+    "Logistic Regression": 0.634,
+    "Random Forest": 0.5387,
+    "XGBoost": 0.5915
+   },
+   "version": "v45",
+   "generated_at": "2026-10-10T15:04:46"
+  },
+  {
+   "file": "fig_confusion_winner_oof",
+   "data_source": "selection pool 140/70 \u2014 StratifiedGroupKFold 5-fold, single repeat (seed 42)",
+   "numbers": {
+    "sum": 140,
+    "diag": 99
+   },
+   "version": "v45",
+   "generated_at": "2026-10-10T15:04:47"
+  },
+  {
+   "file": "fig_confusion_holdout",
+   "data_source": "sealed holdout vault (18 services / 36 records); final model fit on the 140 pool",
+   "numbers": {
+    "sum": 36,
+    "correct": 22,
+    "macro_f1": 0.559
+   },
+   "version": "v45",
+   "generated_at": "2026-10-10T15:04:47"
+  },
+  {
+   "file": "fig_roc_winner",
+   "data_source": "winner (LogReg), one-vs-rest per class, mean \u00b1 std across the 25 folds (pool 140)",
+   "numbers": {
+    "auc_macro": 0.859,
+    "auc_High": 0.886,
+    "auc_Medium": 0.77,
+    "auc_Low": 0.923
+   },
+   "version": "v45",
+   "generated_at": "2026-10-10T15:04:48"
+  },
+  {
+   "file": "fig_seed_stability",
+   "data_source": "official seed_sensitivity.json (pool 140); Dummy rows persisted via the official protocol",
+   "numbers": {
+    "LR@42": 0.634,
+    "leader_all_bases": "Logistic Regression"
+   },
+   "version": "v45",
+   "generated_at": "2026-10-10T15:04:48"
+  },
+  {
+   "file": "fig_top_drivers_high",
+   "data_source": "LogReg fit on the 140-record selection pool (A2 option 1)",
+   "numbers": {
+    "top1": "Complexity_Level",
+    "coef_top1": 1.1
+   },
+   "version": "v45",
+   "generated_at": "2026-10-10T15:04:48"
+  },
+  {
+   "file": "fig_permutation_importance",
+   "data_source": "xai_global.json \u2014 grouped permutation over the 25 folds, 140-record selection pool / 70 services (A2 option 1)",
+   "numbers": {
+    "top1": "Business_Criticality"
+   },
+   "version": "v45",
+   "generated_at": "2026-10-10T15:04:48"
+  }
+ ]
+}

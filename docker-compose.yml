@@ -1,0 +1,14 @@
+services:
+  ml-core:
+    build: .
+    image: migration-risk-app:phase3c
+    container_name: migration-risk-app
+    ports:
+      - "8000:8000"
+    volumes:
+      # Bind the whole data folder so processed files and results land on the
+      # host disk (the zip already contains data/raw with the dataset).
+      - ./data:/app/data
+      # Bind docs so editing docs/progress.yaml on the host reflects on the
+      # Research Progress page with a simple browser refresh (no rebuild).
+      - ./docs:/app/docs

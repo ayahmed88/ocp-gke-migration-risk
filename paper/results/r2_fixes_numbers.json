@@ -1,0 +1,44 @@
+{
+ "low_dev_per_fold": [
+  0,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  0,
+  1,
+  0,
+  1,
+  1,
+  1,
+  1,
+  1,
+  2,
+  0,
+  1,
+  0,
+  2,
+  1,
+  1,
+  0,
+  0
+ ],
+ "folds_with_zero_low_dev": 7,
+ "low_dev_min_max": [
+  0,
+  2
+ ],
+ "pool_low_dev_total": 4,
+ "owner_diff_mean": 0.0001,
+ "owner_diff_sd": 0.0496,
+ "owner_ci95_nb": [
+  -0.055,
+  0.055
+ ],
+ "wins_13": 10,
+ "ties": 6,
+ "losses_13": 9
+}

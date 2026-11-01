@@ -1,0 +1,351 @@
+{
+ "generated_at": "2026-10-15T10:43:33",
+ "purpose": "Prove the workbook's exploratory feature screen is insensitive to the vault boundary: same implementation on 176 vs the 140-record pool.",
+ "method": "MI + RF importance + XGB importance vs Risk_Level and Outcome; keep if any score >= 0.02; seed 42.",
+ "note": "The official feature set is availability-determined (all pre-execution columns; structural drops only), so the screen never selected features; this check additionally shows its decisions do not depend on vault rows.",
+ "n_candidates": 20,
+ "decisions_changed": [],
+ "all_decisions_unchanged": true,
+ "features": [
+  {
+   "feature": "Environment",
+   "timing": "Pre-execution",
+   "keep_full_176": true,
+   "max_score_full": 0.0216,
+   "keep_pool_140": true,
+   "max_score_pool": 0.0217,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.0068,
+    "rf_vs_Risk": 0.0217,
+    "xgb_vs_Risk": 0.0176,
+    "mi_vs_Outcome": 0.0159,
+    "rf_vs_Outcome": 0.0146,
+    "xgb_vs_Outcome": 0.0003
+   }
+  },
+  {
+   "feature": "Service_Category",
+   "timing": "Pre-execution",
+   "keep_full_176": true,
+   "max_score_full": 0.0406,
+   "keep_pool_140": true,
+   "max_score_pool": 0.0644,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.0644,
+    "rf_vs_Risk": 0.0498,
+    "xgb_vs_Risk": 0.0254,
+    "mi_vs_Outcome": 0.0256,
+    "rf_vs_Outcome": 0.0117,
+    "xgb_vs_Outcome": 0.0
+   }
+  },
+  {
+   "feature": "Business_Criticality",
+   "timing": "Pre-execution",
+   "keep_full_176": true,
+   "max_score_full": 0.0529,
+   "keep_pool_140": true,
+   "max_score_pool": 0.0517,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.0517,
+    "rf_vs_Risk": 0.0237,
+    "xgb_vs_Risk": 0.028,
+    "mi_vs_Outcome": 0.0112,
+    "rf_vs_Outcome": 0.0084,
+    "xgb_vs_Outcome": 0.0001
+   }
+  },
+  {
+   "feature": "Complexity_Level",
+   "timing": "Pre-execution",
+   "keep_full_176": true,
+   "max_score_full": 0.0789,
+   "keep_pool_140": true,
+   "max_score_pool": 0.0826,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.0826,
+    "rf_vs_Risk": 0.0727,
+    "xgb_vs_Risk": 0.0547,
+    "mi_vs_Outcome": 0.0492,
+    "rf_vs_Outcome": 0.02,
+    "xgb_vs_Outcome": 0.0002
+   }
+  },
+  {
+   "feature": "Has_DB_Dependency",
+   "timing": "Pre-execution",
+   "keep_full_176": true,
+   "max_score_full": 0.0698,
+   "keep_pool_140": true,
+   "max_score_pool": 0.0656,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.0656,
+    "rf_vs_Risk": 0.0329,
+    "xgb_vs_Risk": 0.0256,
+    "mi_vs_Outcome": 0.0161,
+    "rf_vs_Outcome": 0.0053,
+    "xgb_vs_Outcome": 0.0
+   }
+  },
+  {
+   "feature": "DB_Type",
+   "timing": "Pre-execution",
+   "keep_full_176": true,
+   "max_score_full": 0.114,
+   "keep_pool_140": true,
+   "max_score_pool": 0.0957,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.0957,
+    "rf_vs_Risk": 0.0254,
+    "xgb_vs_Risk": 0.0143,
+    "mi_vs_Outcome": 0.0461,
+    "rf_vs_Outcome": 0.0145,
+    "xgb_vs_Outcome": 0.0001
+   }
+  },
+  {
+   "feature": "Has_Network_Change",
+   "timing": "Pre-execution",
+   "keep_full_176": true,
+   "max_score_full": 0.1562,
+   "keep_pool_140": true,
+   "max_score_pool": 0.2053,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.1709,
+    "rf_vs_Risk": 0.0762,
+    "xgb_vs_Risk": 0.2053,
+    "mi_vs_Outcome": 0.0453,
+    "rf_vs_Outcome": 0.0102,
+    "xgb_vs_Outcome": 0.0
+   }
+  },
+  {
+   "feature": "Firewall_Rules_Count",
+   "timing": "Pre-execution",
+   "keep_full_176": true,
+   "max_score_full": 0.2112,
+   "keep_pool_140": true,
+   "max_score_pool": 0.2298,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.2298,
+    "rf_vs_Risk": 0.1308,
+    "xgb_vs_Risk": 0.0645,
+    "mi_vs_Outcome": 0.1324,
+    "rf_vs_Outcome": 0.0338,
+    "xgb_vs_Outcome": 0.0002
+   }
+  },
+  {
+   "feature": "External_Integrations_Count",
+   "timing": "Pre-execution",
+   "keep_full_176": true,
+   "max_score_full": 0.0526,
+   "keep_pool_140": true,
+   "max_score_pool": 0.0669,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.0669,
+    "rf_vs_Risk": 0.0456,
+    "xgb_vs_Risk": 0.0159,
+    "mi_vs_Outcome": 0.0416,
+    "rf_vs_Outcome": 0.0186,
+    "xgb_vs_Outcome": 0.0
+   }
+  },
+  {
+   "feature": "Route_Ingress_Changed",
+   "timing": "Pre-execution",
+   "keep_full_176": true,
+   "max_score_full": 0.0477,
+   "keep_pool_140": true,
+   "max_score_pool": 0.0437,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.0437,
+    "rf_vs_Risk": 0.0224,
+    "xgb_vs_Risk": 0.0277,
+    "mi_vs_Outcome": 0.0004,
+    "rf_vs_Outcome": 0.0066,
+    "xgb_vs_Outcome": 0.0
+   }
+  },
+  {
+   "feature": "Has_Config_Change",
+   "timing": "Pre-execution",
+   "keep_full_176": true,
+   "max_score_full": 0.0269,
+   "keep_pool_140": true,
+   "max_score_pool": 0.0301,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.0013,
+    "rf_vs_Risk": 0.0127,
+    "xgb_vs_Risk": 0.0301,
+    "mi_vs_Outcome": 0.0198,
+    "rf_vs_Outcome": 0.0113,
+    "xgb_vs_Outcome": 0.0004
+   }
+  },
+  {
+   "feature": "Owner_Availability",
+   "timing": "Pre-execution",
+   "keep_full_176": true,
+   "max_score_full": 0.088,
+   "keep_pool_140": true,
+   "max_score_pool": 0.0985,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.046,
+    "rf_vs_Risk": 0.0262,
+    "xgb_vs_Risk": 0.0248,
+    "mi_vs_Outcome": 0.0985,
+    "rf_vs_Outcome": 0.0302,
+    "xgb_vs_Outcome": 0.0
+   }
+  },
+  {
+   "feature": "Previous_Issues_Count",
+   "timing": "Pre-execution",
+   "keep_full_176": true,
+   "max_score_full": 0.0985,
+   "keep_pool_140": true,
+   "max_score_pool": 0.1235,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.1235,
+    "rf_vs_Risk": 0.0801,
+    "xgb_vs_Risk": 0.0616,
+    "mi_vs_Outcome": 0.045,
+    "rf_vs_Outcome": 0.0247,
+    "xgb_vs_Outcome": 0.0001
+   }
+  },
+  {
+   "feature": "Validation_Attempts",
+   "timing": "Execution-phase",
+   "keep_full_176": true,
+   "max_score_full": 0.1406,
+   "keep_pool_140": true,
+   "max_score_pool": 0.1503,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.1344,
+    "rf_vs_Risk": 0.0507,
+    "xgb_vs_Risk": 0.0427,
+    "mi_vs_Outcome": 0.1503,
+    "rf_vs_Outcome": 0.0442,
+    "xgb_vs_Outcome": 0.0004
+   }
+  },
+  {
+   "feature": "DB_Access_Issue",
+   "timing": "Execution-phase",
+   "keep_full_176": true,
+   "max_score_full": 0.0456,
+   "keep_pool_140": true,
+   "max_score_pool": 0.0339,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.0296,
+    "rf_vs_Risk": 0.0107,
+    "xgb_vs_Risk": 0.0287,
+    "mi_vs_Outcome": 0.0339,
+    "rf_vs_Outcome": 0.008,
+    "xgb_vs_Outcome": 0.0
+   }
+  },
+  {
+   "feature": "Network_Access_Issue",
+   "timing": "Execution-phase",
+   "keep_full_176": true,
+   "max_score_full": 0.0346,
+   "keep_pool_140": true,
+   "max_score_pool": 0.0396,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.0289,
+    "rf_vs_Risk": 0.0095,
+    "xgb_vs_Risk": 0.0396,
+    "mi_vs_Outcome": 0.032,
+    "rf_vs_Outcome": 0.0139,
+    "xgb_vs_Outcome": 0.0
+   }
+  },
+  {
+   "feature": "Image_Build_Issue",
+   "timing": "Execution-phase",
+   "keep_full_176": true,
+   "max_score_full": 0.033,
+   "keep_pool_140": true,
+   "max_score_pool": 0.0412,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.0348,
+    "rf_vs_Risk": 0.0113,
+    "xgb_vs_Risk": 0.0381,
+    "mi_vs_Outcome": 0.0412,
+    "rf_vs_Outcome": 0.0132,
+    "xgb_vs_Outcome": 0.0
+   }
+  },
+  {
+   "feature": "Validation_Result",
+   "timing": "Execution-phase",
+   "keep_full_176": true,
+   "max_score_full": 0.7378,
+   "keep_pool_140": true,
+   "max_score_pool": 0.7705,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.191,
+    "rf_vs_Risk": 0.0868,
+    "xgb_vs_Risk": 0.1301,
+    "mi_vs_Outcome": 0.7705,
+    "rf_vs_Outcome": 0.2959,
+    "xgb_vs_Outcome": 0.5022
+   }
+  },
+  {
+   "feature": "Migration_Duration_Hours",
+   "timing": "Execution-phase",
+   "keep_full_176": true,
+   "max_score_full": 0.2894,
+   "keep_pool_140": true,
+   "max_score_pool": 0.3024,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.3024,
+    "rf_vs_Risk": 0.1414,
+    "xgb_vs_Risk": 0.0716,
+    "mi_vs_Outcome": 0.2376,
+    "rf_vs_Outcome": 0.0392,
+    "xgb_vs_Outcome": 0.0004
+   }
+  },
+  {
+   "feature": "Cutover_Delay_Days",
+   "timing": "Execution-phase",
+   "keep_full_176": true,
+   "max_score_full": 0.9265,
+   "keep_pool_140": true,
+   "max_score_pool": 0.9436,
+   "decision_unchanged": true,
+   "scores_pool": {
+    "mi_vs_Risk": 0.1724,
+    "rf_vs_Risk": 0.0694,
+    "xgb_vs_Risk": 0.0535,
+    "mi_vs_Outcome": 0.9436,
+    "rf_vs_Outcome": 0.3758,
+    "xgb_vs_Outcome": 0.4955
+   }
+  }
+ ]
+}

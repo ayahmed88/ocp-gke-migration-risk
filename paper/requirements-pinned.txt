@@ -1,0 +1,9 @@
+python==3.13.16
+scikit-learn==1.8.0
+xgboost==3.3.0
+pandas==3.0.2
+numpy
+scipy
+matplotlib
+openpyxl
+pillow

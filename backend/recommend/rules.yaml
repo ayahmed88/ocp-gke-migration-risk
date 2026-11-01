@@ -1,0 +1,75 @@
+# Recommendation rulebook — Phase 4C
+# Every rule was reverse-verified against the program's REAL historical
+# Recommended_Action column during the Phase 1 audit; the `evidence` field
+# quotes that exact agreement. The engine is fully deterministic: no
+# generated text, every output cites its rule id and the values that fired it.
+#
+# stage: pre_execution  -> evaluable from the 13 PRE-EXEC inputs (prediction form)
+#        execution      -> needs execution-phase signals (not asked in the form)
+#        post_prediction-> driven by the model's predicted class
+# priority: high | medium | low
+
+- id: R1
+  action: validate_db_connectivity
+  stage: pre_execution
+  priority: high
+  trigger: { field: Has_DB_Dependency, op: "==", value: 1 }
+  evidence: "Deterministic in history: 100% (118/118 records)"
+
+- id: R2
+  action: verify_firewall_network_rules
+  stage: pre_execution
+  priority: high
+  trigger:
+    any:
+      - { field: Has_Network_Change, op: "==", value: 1 }
+      - { field: Firewall_Rules_Count, op: ">=", value: 5 }
+  evidence: "Deterministic in history: 100% (120/120 records)"
+
+- id: R3
+  action: confirm_owner_availability
+  stage: pre_execution
+  priority: medium
+  trigger: { field: Owner_Availability, op: in, value: [Delayed, Unknown] }
+  evidence: "Deterministic in history: 100% (46/46 records)"
+
+- id: R4
+  action: review_env_configuration
+  stage: pre_execution
+  priority: medium
+  trigger:
+    all:
+      - { field: Has_Config_Change, op: "==", value: 1 }
+      - { field: Environment, op: "==", value: QA }
+  evidence: "Deterministic in history: 100% (48/48 records)"
+
+- id: R5
+  action: review_image_build_pipeline
+  stage: execution
+  priority: medium
+  trigger:
+    all:
+      - { field: Image_Build_Issue, op: "==", value: 1 }
+      - { field: Environment, op: "==", value: QA }
+  evidence: "Deterministic in history: 100% (15/15 records); uses an execution-phase signal"
+
+- id: R6
+  action: test_external_integrations
+  stage: pre_execution
+  priority: medium
+  trigger: { field: External_Integrations_Count, op: ">=", value: 3 }
+  evidence: "Historical agreement 89.2% (91/102): always applied at >=4 (56/56); at exactly 3 experts applied it in 35/46 cases — threshold 3 adopted conservatively"
+
+- id: R7
+  action: extended_validation_window
+  stage: post_prediction
+  priority: high
+  trigger: { field: __prediction__, op: "==", value: High }
+  evidence: "Expert/risk-driven in history (68/93 High records carried it); implemented as an explicit post-prediction mapping per the approved design"
+
+- id: R8
+  action: standard_checklist
+  stage: fallback
+  priority: low
+  trigger: fallback
+  evidence: "Deterministic in history: 100% (7/7 records with no other trigger)"

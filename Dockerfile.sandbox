@@ -1,0 +1,18 @@
+# Sandbox-test twin of the shipped Dockerfile.
+# Identical assembly steps, but FROM a locally-built Ubuntu-noble base
+# (python3 + libgomp1 preinstalled via debootstrap) because Docker Hub is
+# not reachable from the development sandbox. Used ONLY for pre-delivery
+# in-container testing; end users always build the main Dockerfile.
+FROM local/ubuntu-noble-py312
+WORKDIR /app
+# The sandbox egress proxy re-signs TLS with its own CA; inject the host's
+# trusted bundle (copied into the build context by the test script).
+COPY .sandbox-ca.crt /etc/ssl/certs/ca-certificates.crt
+ENV PIP_CERT=/etc/ssl/certs/ca-certificates.crt \
+    SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt \
+    REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+COPY requirements.txt .
+RUN pip3 install --no-cache-dir --break-system-packages -r requirements.txt
+COPY backend ./backend
+COPY data/raw ./data/raw
+CMD ["python3", "-m", "backend.experiments.run_baseline"]

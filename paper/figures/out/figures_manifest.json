@@ -1,0 +1,418 @@
+{
+ "generator": "v4/figs_src/make_figures.py",
+ "matplotlib": "3.10.8",
+ "font": "Liberation Serif (fallback DejaVu Serif)",
+ "dpi": 600,
+ "figures": [
+  {
+   "png": "fig1_class_by_environment.png",
+   "pdf": "fig1_class_by_environment.pdf",
+   "png_pixels_wh": [
+    3600,
+    2100
+   ],
+   "png_dpi": [
+    600,
+    600
+   ],
+   "size_in_wh": [
+    6.0,
+    3.5
+   ],
+   "sha256": {
+    "fig1_class_by_environment.png": "60bb4a9ae94f3f191a526abd5662c01825242178e8328e5c4c58d564532f4c85",
+    "fig1_class_by_environment.pdf": "590d157bd97904be4f821833e39608e3a8bf2c9f84b4b1f2a090e67863ffd68d"
+   },
+   "figure": 1,
+   "title": "Risk-level counts by environment",
+   "source": [
+    "data/raw/OCP_GKE_Migration_Risk_Dataset_REAL_176.xlsx :: sheet RAW_Dataset_176 (columns Environment, Risk_Level)"
+   ],
+   "plotted": {
+    "counts": {
+     "Dev": {
+      "High": 48,
+      "Medium": 35,
+      "Low": 5
+     },
+     "QA": {
+      "High": 45,
+      "Medium": 33,
+      "Low": 10
+     }
+    },
+    "class_order": [
+     "High",
+     "Medium",
+     "Low"
+    ],
+    "total_records": 176
+   }
+  },
+  {
+   "png": "fig2_protocol.png",
+   "pdf": "fig2_protocol.pdf",
+   "png_pixels_wh": [
+    3600,
+    2340
+   ],
+   "png_dpi": [
+    600,
+    600
+   ],
+   "size_in_wh": [
+    6.0,
+    3.9
+   ],
+   "sha256": {
+    "fig2_protocol.png": "1b949d0bb7a9ce35220be3b38a1e2e8f2015bcf4c86e54cc53d44093068edecd",
+    "fig2_protocol.pdf": "9f2f1cd6ddc8f7146ed4ee647653d61173e3186b173fad0cef4ad16dc3fc0495"
+   },
+   "figure": 2,
+   "title": "Data and evaluation flow",
+   "source": [
+    "report/figmock/render_fix.py (layout, boxes, colours)",
+    "data/raw/OCP_GKE_Migration_Risk_Dataset_REAL_176.xlsx :: sheet RAW_Dataset_176 (176 x 27, 88 services, integrity checks)",
+    "data/results/holdout_report.json (140/70 pool, 36/18 holdout, seed 42, 80/20 grouped split)",
+    "data/results/phase3a_manifest.json (StratifiedGroupKFold 5x5, seeds 42..46; integrity checks)"
+   ],
+   "plotted": {
+    "records": 176,
+    "services": 88,
+    "fields": 27,
+    "shape": "176x27",
+    "split": "GroupShuffleSplit 80/20 by Service_Code, seed 42",
+    "pool": {
+     "records": 140,
+     "services": 70
+    },
+    "holdout": {
+     "records": 36,
+     "services": 18
+    },
+    "cv": "StratifiedGroupKFold 5x5, seeds 42-46"
+   }
+  },
+  {
+   "png": "fig3_seed_stability.png",
+   "pdf": "fig3_seed_stability.pdf",
+   "png_pixels_wh": [
+    3600,
+    2220
+   ],
+   "png_dpi": [
+    600,
+    600
+   ],
+   "size_in_wh": [
+    6.0,
+    3.7
+   ],
+   "sha256": {
+    "fig3_seed_stability.png": "e6317389d9b7a2e52007ccfad693d407da16cd94ee4c1ac02cea5157f23b8521",
+    "fig3_seed_stability.pdf": "8a0d8830e5d67fed11cbd4df76accfb5e7d93a49fd1971e4c97b266a969cf9d8"
+   },
+   "figure": 3,
+   "title": "Macro-F1 across split-seed bases",
+   "source": [
+    "data/results/seed_sensitivity.json"
+   ],
+   "plotted": {
+    "seed_base_42": {
+     "Logistic Regression": {
+      "macro_f1_mean": 0.634,
+      "sd": 0.109
+     },
+     "Random Forest": {
+      "macro_f1_mean": 0.539,
+      "sd": 0.141
+     },
+     "XGBoost": {
+      "macro_f1_mean": 0.592,
+      "sd": 0.135
+     },
+     "Dummy (prior)": {
+      "macro_f1_mean": 0.238,
+      "sd": 0.005
+     }
+    },
+    "seed_base_7": {
+     "Logistic Regression": {
+      "macro_f1_mean": 0.627,
+      "sd": 0.123
+     },
+     "Random Forest": {
+      "macro_f1_mean": 0.523,
+      "sd": 0.12
+     },
+     "XGBoost": {
+      "macro_f1_mean": 0.584,
+      "sd": 0.155
+     },
+     "Dummy (prior)": {
+      "macro_f1_mean": 0.238,
+      "sd": 0.006
+     }
+    },
+    "seed_base_100": {
+     "Logistic Regression": {
+      "macro_f1_mean": 0.616,
+      "sd": 0.094
+     },
+     "Random Forest": {
+      "macro_f1_mean": 0.51,
+      "sd": 0.113
+     },
+     "XGBoost": {
+      "macro_f1_mean": 0.553,
+      "sd": 0.112
+     },
+     "Dummy (prior)": {
+      "macro_f1_mean": 0.238,
+      "sd": 0.006
+     }
+    },
+    "seed_base_2026": {
+     "Logistic Regression": {
+      "macro_f1_mean": 0.634,
+      "sd": 0.127
+     },
+     "Random Forest": {
+      "macro_f1_mean": 0.536,
+      "sd": 0.127
+     },
+     "XGBoost": {
+      "macro_f1_mean": 0.574,
+      "sd": 0.147
+     },
+     "Dummy (prior)": {
+      "macro_f1_mean": 0.238,
+      "sd": 0.005
+     }
+    }
+   }
+  },
+  {
+   "png": "fig4_holdout_confusion.png",
+   "pdf": "fig4_holdout_confusion.pdf",
+   "png_pixels_wh": [
+    3300,
+    2520
+   ],
+   "png_dpi": [
+    600,
+    600
+   ],
+   "size_in_wh": [
+    5.5,
+    4.2
+   ],
+   "sha256": {
+    "fig4_holdout_confusion.png": "eb38780686617eb986645eff8931cac45945f1ba6775735798ec00f2331a2fc2",
+    "fig4_holdout_confusion.pdf": "2561863eaa28d68f02d42fd4714df21776a1d55919423bd4ff4a739e9ac2eea0"
+   },
+   "figure": 4,
+   "title": "Reserved-holdout confusion matrix (rows = actual, columns = predicted)",
+   "source": [
+    "data/results/holdout_report.json :: confusion"
+   ],
+   "plotted": {
+    "labels": [
+     "Low",
+     "Medium",
+     "High"
+    ],
+    "matrix": [
+     [
+      2,
+      1,
+      0
+     ],
+     [
+      4,
+      11,
+      3
+     ],
+     [
+      2,
+      4,
+      9
+     ]
+    ],
+    "row_totals": [
+     3,
+     18,
+     15
+    ],
+    "column_totals": [
+     8,
+     16,
+     12
+    ],
+    "grand_total": 36,
+    "colormap": "Greens, vmin 0, vmax 11"
+   }
+  },
+  {
+   "png": "fig5_permutation_importance.png",
+   "pdf": "fig5_permutation_importance.pdf",
+   "png_pixels_wh": [
+    3600,
+    2580
+   ],
+   "png_dpi": [
+    600,
+    600
+   ],
+   "size_in_wh": [
+    6.0,
+    4.3
+   ],
+   "sha256": {
+    "fig5_permutation_importance.png": "cc5312308858327d67d7ab8d7c5478ae0a91f247093ac6c3683b1f97991ac0c1",
+    "fig5_permutation_importance.pdf": "7217ac5cb8f87b3728c8573c6a4c7110cd679822f4edc080b1f10b3017e27e1a"
+   },
+   "figure": 5,
+   "title": "Permutation importance (Logistic Regression, 25 grouped folds)",
+   "source": [
+    "data/results/xai_global.json :: permutation_importance"
+   ],
+   "plotted": {
+    "order": "descending by mean",
+    "features": [
+     {
+      "feature": "Business_Criticality",
+      "f1_drop_mean": 0.0772,
+      "f1_drop_std": 0.0711
+     },
+     {
+      "feature": "Complexity_Level",
+      "f1_drop_mean": 0.0599,
+      "f1_drop_std": 0.0761
+     },
+     {
+      "feature": "Previous_Issues_Count",
+      "f1_drop_mean": 0.0539,
+      "f1_drop_std": 0.0627
+     },
+     {
+      "feature": "Has_Network_Change",
+      "f1_drop_mean": 0.0424,
+      "f1_drop_std": 0.0768
+     },
+     {
+      "feature": "Firewall_Rules_Count",
+      "f1_drop_mean": 0.0424,
+      "f1_drop_std": 0.0636
+     },
+     {
+      "feature": "External_Integrations_Count",
+      "f1_drop_mean": 0.0377,
+      "f1_drop_std": 0.0658
+     },
+     {
+      "feature": "Service_Category",
+      "f1_drop_mean": 0.0363,
+      "f1_drop_std": 0.0647
+     },
+     {
+      "feature": "Has_DB_Dependency",
+      "f1_drop_mean": 0.0298,
+      "f1_drop_std": 0.0658
+     },
+     {
+      "feature": "Environment",
+      "f1_drop_mean": 0.0155,
+      "f1_drop_std": 0.0643
+     },
+     {
+      "feature": "Owner_Availability",
+      "f1_drop_mean": 0.0039,
+      "f1_drop_std": 0.0336
+     },
+     {
+      "feature": "Has_Config_Change",
+      "f1_drop_mean": 0.0033,
+      "f1_drop_std": 0.0444
+     },
+     {
+      "feature": "Route_Ingress_Changed",
+      "f1_drop_mean": -0.0043,
+      "f1_drop_std": 0.0322
+     },
+     {
+      "feature": "DB_Type",
+      "f1_drop_mean": -0.0054,
+      "f1_drop_std": 0.0712
+     }
+    ]
+   }
+  }
+ ],
+ "contact_sheet": {
+  "file": "contact_sheet.png",
+  "png_pixels_wh": [
+   3750,
+   548
+  ],
+  "dpi": 200
+ },
+ "fig6_prototype": {
+  "generator": "v4/figs_src/make_fig6.py",
+  "facts": {
+   "rest_endpoints": 28,
+   "pages": 14,
+   "languages": [
+    "en",
+    "ar"
+   ]
+  },
+  "png_pixels_wh": [
+   3360,
+   2160
+  ],
+  "png_dpi": 600,
+  "sha256": {
+   "fig6_prototype.png": "e1fe141b858ec00fbe43b3e6d7b91e2ae59fc9da5209c2f57fe7d94941ff61ff",
+   "fig6_prototype.pdf": "3b3966b8928f5a4ec0809abec3e48669f97978c1755f2056b7de8867b834b64a"
+  }
+ },
+ "fig7_prediction_screen": {
+  "generator": "v4/figs_src/make_fig6.py",
+  "png_pixels_wh": [
+   3360,
+   3978
+  ],
+  "png_dpi": 600,
+  "source": "screenshot of the v45 application, New case prediction page, record MIG-006, English interface (A.Y.A., 1 Nov 2026); cropped to the content area",
+  "callouts": {
+   "1": "model selection",
+   "2": "13 planning-stage inputs",
+   "3": "Compute risk",
+   "4": "predicted level, risk meter, class probabilities",
+   "5": "attribute contributions",
+   "6": "recommended actions with rule identifiers"
+  },
+  "values_checked_against_rerun": {
+   "High": 0.972,
+   "Medium": 0.028,
+   "Low": 0.0,
+   "contrib": {
+    "Complexity_Level": 1.53,
+    "Service_Category=Integration": 0.63,
+    "Has_DB_Dependency": 0.52
+   },
+   "rules": [
+    "R1",
+    "R2",
+    "R7",
+    "R3",
+    "R6"
+   ]
+  },
+  "sha256": {
+   "fig7_prediction_screen.png": "36b2f8ee300936c4405f786b1ce14bd8dd578164408af8f376c0ef72d0ca535f",
+   "fig7_prediction_screen.pdf": "b3a40b8a2c8a9b8df4775249f92ca8f652d9191cdeb3e002c02e854c7d3bbbee"
+  }
+ }
+}

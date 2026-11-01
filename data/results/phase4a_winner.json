@@ -1,0 +1,24 @@
+{
+  "config": "A_Risk_PRE-EXEC (Risk_Level from 13 pre-execution features)",
+  "primary_metric": "Macro-F1 (guardrail: Recall of the High class)",
+  "declared_at": "2026-07-11T14:50:27",
+  "finding_tuning": "Nested grouped tuning produced no measurable gain (\u0394Macro-F1 within \u00b10.022, far below fold std \u22480.10\u20130.14); hyperparameter selection itself was unstable (modal combination chosen in only 7\u20138/25 outer folds). Conclusion: at n=176 records / 88 groups, well-regularised defaults are as good as tuned settings; defaults are retained for deployment.",
+  "winner": "Logistic Regression (default C=1.0, class_weight='balanced', standardised numerics)",
+  "figures": {
+    "macro_f1": "0.608 \u00b1 0.097",
+    "auc_ovr_macro": "0.852",
+    "accuracy": "0.680",
+    "recall_High": "0.788",
+    "recall_Low": "0.633 (best of the three)"
+  },
+  "rationale": [
+    "Top Macro-F1: 0.608 vs XGBoost 0.601 (tuned) / 0.599 (default) \u2014 differences are within one fold-std, i.e. statistically indistinguishable.",
+    "Tie-break by documented criteria: (a) lowest variance across folds (\u00b10.097 \u2014 most stable), (b) highest AUC 0.852, (c) best minority-class performance (Recall_Low), (d) parsimony and direct interpretability (coefficients feed the XAI layer natively), (e) fastest training/prediction.",
+    "Because the Macro-F1 gap is inside the noise band, the declaration explicitly relies on these pre-stated tie-breakers rather than claiming statistical superiority."
+  ],
+  "operational_alternative": "Random Forest (defaults) achieves the highest Recall_High = 0.841 and is documented as the recommended alternative if the migration program later prioritises maximum sensitivity to High-risk cases over balanced performance.",
+  "caveats": [
+    "Low class has only 15 records \u2014 its per-class figures carry wide uncertainty.",
+    "All figures are 25-fold grouped-CV means; a locked group holdout demonstration is scheduled for the defense build (Phase 5)."
+  ]
+}
