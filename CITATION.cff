@@ -2,11 +2,15 @@ cff-version: 1.2.0
 message: "If you use this code, please cite the paper (preferred) or this repository."
 type: software
 title: "OCP-to-GKE migration risk prediction and mitigation recommendation: code, manifests and data dictionary"
-version: v46-public
-date-released: 2026-11-01
+version: v46.2-public
+date-released: 2026-11-03
 license: MIT
 doi: 10.5281/zenodo.23869306
+repository-code: "https://github.com/ayahmed88/ocp-gke-migration-risk"
 identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23871407
+    description: "Zenodo archive of release v46.1-public"
   - type: doi
     value: 10.5281/zenodo.23869307
     description: "Zenodo archive of release v46-public"
@@ -14,9 +18,10 @@ identifiers:
     value: 10.5281/zenodo.23869306
     description: "Zenodo concept DOI (all versions)"
 authors:
-  - family-names: Shammo
+  - family-names: Shommo
     given-names: Ghada
     affiliation: "College of Computer Science and Information Technology, Sudan University of Science and Technology, Khartoum, Sudan"
+    orcid: "https://orcid.org/0000-0003-4484-7337"
   - family-names: Abdelgader
     given-names: Ahmed Yaseen
     affiliation: "College of Computer Science and Information Technology, Sudan University of Science and Technology, Khartoum, Sudan"
@@ -25,7 +30,7 @@ preferred-citation:
   type: article
   title: "Predicting Kubernetes Cloud Migration Risk from Enterprise OCP-to-GKE Records: A Machine-Learning and Mitigation Recommendation Framework"
   authors:
-    - family-names: Shammo
+    - family-names: Shommo
       given-names: Ghada
     - family-names: Abdelgader
       given-names: Ahmed Yaseen

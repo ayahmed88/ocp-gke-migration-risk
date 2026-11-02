@@ -1,3 +1,9 @@
+## v46.2-public (2026-11-03)
+- Metadata release: the corresponding author's surname is corrected to Shommo in CITATION.cff, LICENSE, README and the English interface footer (source and built bundle), and her ORCID is added to CITATION.cff; version metadata updated. No change to any code path, experiment, model, rule or result file.
+
+## v46.1-public (2026-11-02)
+- Data dictionary: Risk_Level and Outcome codebook; Previous_Issues_Count defined per environment. `paper/` folder: re-check, Table 5 SD and round-2 analysis scripts with their result files. README and CITATION.cff with the Zenodo DOIs. No change to any experiment, model, rule or result file of the official run.
+
 ## v46-public (2026-11-01)
 - Public release for the journal submission. Real dataset, processed table and record-level exports removed; synthetic example workbook added (`data/example/`); dataset path override `MRA_DATASET_XLSX`; evidence tests skip on synthetic data; `paper/` folder with the analysis and figure scripts; README, LICENSE (MIT), CITATION.cff, data dictionary. No change to any experiment, model, rule or result file.
 

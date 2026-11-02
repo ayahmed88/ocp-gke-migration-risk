@@ -380,10 +380,10 @@
  "fig7_prediction_screen": {
   "generator": "v4/figs_src/make_fig6.py",
   "png_pixels_wh": [
-   3360,
-   3978
+   1495,
+   1770
   ],
-  "png_dpi": 600,
+  "png_dpi": 267,
   "source": "screenshot of the v45 application, New case prediction page, record MIG-006, English interface (A.Y.A., 1 Nov 2026); cropped to the content area",
   "callouts": {
    "1": "model selection",
@@ -411,8 +411,8 @@
    ]
   },
   "sha256": {
-   "fig7_prediction_screen.png": "36b2f8ee300936c4405f786b1ce14bd8dd578164408af8f376c0ef72d0ca535f",
-   "fig7_prediction_screen.pdf": "b3a40b8a2c8a9b8df4775249f92ca8f652d9191cdeb3e002c02e854c7d3bbbee"
+   "fig7_prediction_screen.png": "77b08383f259676e6d593ff1b09bb3072e9eea9bf142c65bca2b1d8c0c200c8a",
+   "fig7_prediction_screen.pdf": "551b7e5b019db24ad28b531e7923feb3db4f764b0cc40d7f473b57e0ac745a4b"
   }
  }
 }

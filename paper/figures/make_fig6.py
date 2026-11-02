@@ -86,17 +86,27 @@ m["fig6_prototype"] = {"generator": "v4/figs_src/make_fig6.py", "facts": {"rest_
                        "sha256": {q.name: hashlib.sha256(q.read_bytes()).hexdigest() for q in (png, pdf)}}
 # ---- Figure 7: annotated New case prediction screen (record MIG-006), screenshot supplied by A.Y.A. on 1 Nov 2026
 if have_screen:
+    # 3 Nov 2026: drawn at the screenshot's native pixel size with PIL (no resampling), so the PNG and the PDF carry the
+    # full-resolution raster; the earlier matplotlib imshow route embedded a 100 ppi copy in the PDF.
+    from PIL import ImageDraw, ImageFont
     im = Image.open(SCREEN).convert("RGB"); W, H = im.size
-    fig = plt.figure(figsize=(5.6, 5.6 * H / W))
-    ax = fig.add_axes([0, 0, 1, 1]); ax.imshow(im); ax.axis("off")
+    draw = ImageDraw.Draw(im)
+    try:
+        font = ImageFont.truetype("/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf", 40)
+    except OSError:
+        font = ImageFont.load_default()
     CALL = [(1, 660, 205), (2, 1345, 265), (3, 275, 705), (4, 250, 814), (5, 300, 1218), (6, 300, 1464)]
+    R = 34
     for n, x, y in CALL:
-        ax.add_patch(plt.Circle((x, y), 34, facecolor="#1F2937", edgecolor="white", linewidth=1.6, zorder=5))
-        ax.text(x, y, str(n), color="white", fontsize=9.5, fontweight="bold", ha="center", va="center", zorder=6)
+        draw.ellipse([x - R - 4, y - R - 4, x + R + 4, y + R + 4], fill="white")
+        draw.ellipse([x - R, y - R, x + R, y + R], fill="#1F2937")
+        draw.text((x, y), str(n), fill="white", font=font, anchor="mm")
     png7, pdf7 = OUT / "fig7_prediction_screen.png", OUT / "fig7_prediction_screen.pdf"
-    fig.savefig(png7, dpi=DPI, metadata={"Software": None}); fig.savefig(pdf7, metadata={"Creator": None, "Producer": None, "CreationDate": None})
-    plt.close(fig)
-    m["fig7_prediction_screen"] = {"generator": "v4/figs_src/make_fig6.py", "png_pixels_wh": _px(png7), "png_dpi": DPI, "source": "screenshot of the v45 application, New case prediction page, record MIG-006, English interface (A.Y.A., 1 Nov 2026); cropped to the content area",
+    NATIVE_PPI = round(W / 5.6)          # 5.6 in = the width used in the manuscript -> 267 ppi; 447 ppi at the journal's 85 mm
+    im.save(png7, dpi=(NATIVE_PPI, NATIVE_PPI))
+    import img2pdf                        # lossless (Flate) PDF wrapper around the same raster; PIL's PDF writer would use JPEG
+    pdf7.write_bytes(img2pdf.convert(str(png7), layout_fun=img2pdf.get_layout_fun(None, None, None, None, None), rotation=img2pdf.Rotation.ifvalid))
+    m["fig7_prediction_screen"] = {"generator": "v4/figs_src/make_fig6.py", "png_pixels_wh": _px(png7), "png_dpi": NATIVE_PPI, "source": "screenshot of the v45 application, New case prediction page, record MIG-006, English interface (A.Y.A., 1 Nov 2026); cropped to the content area",
                                    "callouts": {1: "model selection", 2: "13 planning-stage inputs", 3: "Compute risk", 4: "predicted level, risk meter, class probabilities", 5: "attribute contributions", 6: "recommended actions with rule identifiers"},
                                    "values_checked_against_rerun": {"High": 0.972, "Medium": 0.028, "Low": 0.0, "contrib": {"Complexity_Level": 1.53, "Service_Category=Integration": 0.63, "Has_DB_Dependency": 0.52}, "rules": ["R1", "R2", "R7", "R3", "R6"]},
                                    "sha256": {q.name: hashlib.sha256(q.read_bytes()).hexdigest() for q in (png7, pdf7)}}

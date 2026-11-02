@@ -4,7 +4,7 @@
 
 Code, experiment manifests, result files, data dictionary and a synthetic example dataset for the paper
 
-> Shammo G, Abdelgader AY. *Predicting Kubernetes Cloud Migration Risk from Enterprise OCP-to-GKE Records: A Machine-Learning and Mitigation Recommendation Framework.* Submitted to the Journal of Cloud Computing, 2026.
+> Shommo G, Abdelgader AY. *Predicting Kubernetes Cloud Migration Risk from Enterprise OCP-to-GKE Records: A Machine-Learning and Mitigation Recommendation Framework.* Submitted to the Journal of Cloud Computing, 2026.
 
 The study asks whether 13 attributes recorded at the planning stage of a service migration predict the risk level that engineers assigned after the migration (Low / Medium / High), compares Logistic Regression, Random Forest and XGBoost under repeated service-grouped cross-validation and on a reserved holdout, and links the prediction to eight inspectable mitigation rules. A bilingual (English / Arabic) decision-support prototype implements the pipeline, the models and the rules.
 
@@ -47,4 +47,4 @@ The reserved holdout is the seed-42 service-grouped split (18 services, 36 recor
 
 ## Citation and license
 
-See `CITATION.cff`. Archived on Zenodo: version v46-public https://doi.org/10.5281/zenodo.23869307 (this release); https://doi.org/10.5281/zenodo.23869306 always resolves to the latest version. Code is released under the MIT License. The data dictionary and the synthetic example may be reused with attribution. The real migration records are not part of this release.
+See `CITATION.cff`. Archived on Zenodo: https://doi.org/10.5281/zenodo.23869306 always resolves to the latest version (this release, v46.2-public, receives its own version DOI on Zenodo); earlier versions: v46.1-public https://doi.org/10.5281/zenodo.23871407 and v46-public https://doi.org/10.5281/zenodo.23869307. Code is released under the MIT License. The data dictionary and the synthetic example may be reused with attribution. The real migration records are not part of this release.
