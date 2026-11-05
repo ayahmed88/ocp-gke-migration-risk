@@ -1,8 +1,8 @@
-"""Locked grouped holdout — the defense moment (Phase 5).
+"""Reserved grouped holdout — single post-selection evaluation (Phase 5).
 
 GroupShuffleSplit 80/20 (seed 42) by Service_Code: the winner (Logistic
 Regression, defaults) is trained on ~80% of services and evaluated EXACTLY
-ONCE on the locked 20% it has never seen — no fold averaging, one honest
+ONCE on the reserved 20% (18 services, 36 records) — no fold averaging, one
 confusion matrix for the committee. Deterministic and reproducible.
 """
 import json, datetime
@@ -57,7 +57,7 @@ def run(force: bool = False) -> dict:
         },
         "confusion": {"labels": C.RISK_CLASSES, "matrix": cm},
         "generated_at": datetime.datetime.now().isoformat(timespec="seconds"),
-        "note": "Single locked evaluation for the defense; the thesis headline remains the 25-fold grouped CV.",
+        "note": "Single evaluation on the reserved holdout; the headline result remains the 25-fold grouped CV. The holdout services took part in an exploratory full-data round before the protocol was fixed (paper, Section 3.4): a post-selection check, not an independent confirmation.",
     }
     C.RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(rep, indent=1))
@@ -66,7 +66,7 @@ def run(force: bool = False) -> dict:
     arr = np.array(cm); im = ax.imshow(arr, cmap="Blues")
     ax.set_xticks(range(3), C.RISK_CLASSES); ax.set_yticks(range(3), C.RISK_CLASSES)
     ax.set_xlabel("Predicted"); ax.set_ylabel("Actual")
-    ax.set_title(f"Locked grouped holdout ({len(te)} unseen records)")
+    ax.set_title(f"Reserved grouped holdout ({len(te)} records, post-selection check)")
     for i in range(3):
         for jx in range(3):
             ax.text(jx, i, arr[i, jx], ha="center", va="center", fontweight="bold",

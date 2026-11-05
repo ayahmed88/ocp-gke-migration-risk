@@ -1,3 +1,11 @@
+## v46.3-public (2026-11-05)
+- `paper/r11_presubmission_analyses.py` and `paper/results/r11_presubmission_analyses.json`: the analyses added to the November 2026 manuscript (Table 4 High-vs-rest columns, Table 5 criteria-only and heuristic baselines, Table 7 operational value, Table 8 holdout re-summary, Section 4.5 Dev/QA subsets and wave-ordered transfer, calibration, 20-permutation importance of Figure 5), all in the selection pool with the holdout closed; `paper/figures/make_figures.py` updated for the log-loss permutation figure. These files were prepared for the 4 November submission package and were not in the public v46.2-public commit.
+- New `paper/results/per_fold_metrics.csv` (25 per-fold values of every metric, model and baseline of Tables 4-6 and Sections 4.3/4.5) and `paper/results/oof_confusion_matrices.json`; no record-level information.
+- `paper/r11_presubmission_analyses.py`: the read of the withheld record-level holdout export is guarded; the holdout-bootstrap gate is enabled at the paper's precision; section comments name the manuscript's tables.
+- `paper/README.md`: the SD convention statement corrected (the paper reports every ± value with 25 in the denominator, ddof = 0; the corrected resampled t-test uses the sample variance).
+- Interface strings (English and Arabic, source and built bundle), `backend/experiments/holdout.py` and the README describe the holdout as a reserved post-selection check, consistent with the paper's Section 3.4, instead of a fully independent sealed evaluation.
+- Version metadata (VERSION, CITATION.cff, README). No change to any experiment, model, rule or official result file.
+
 ## v46.2-public (2026-11-03)
 - Metadata release: the corresponding author's surname is corrected to Shommo in CITATION.cff, LICENSE, README and the English interface footer (source and built bundle), and her ORCID is added to CITATION.cff; version metadata updated. No change to any code path, experiment, model, rule or result file.
 

@@ -65,8 +65,8 @@
     3.9
    ],
    "sha256": {
-    "fig2_protocol.png": "1b949d0bb7a9ce35220be3b38a1e2e8f2015bcf4c86e54cc53d44093068edecd",
-    "fig2_protocol.pdf": "9f2f1cd6ddc8f7146ed4ee647653d61173e3186b173fad0cef4ad16dc3fc0495"
+    "fig2_protocol.png": "5394eb2136dab19bbb508ba7f185863835f34300eb50556cdc17802b33114f06",
+    "fig2_protocol.pdf": "68bb357c9b785bae140eafc7ba95118cf87ad8a0d4fdbcf056c41cc56bf0f81f"
    },
    "figure": 2,
    "title": "Data and evaluation flow",
@@ -211,8 +211,8 @@
     "fig4_holdout_confusion.png": "eb38780686617eb986645eff8931cac45945f1ba6775735798ec00f2331a2fc2",
     "fig4_holdout_confusion.pdf": "2561863eaa28d68f02d42fd4714df21776a1d55919423bd4ff4a739e9ac2eea0"
    },
-   "figure": 4,
-   "title": "Reserved-holdout confusion matrix (rows = actual, columns = predicted)",
+   "figure": 6,
+   "title": "Post-selection holdout confusion matrix (rows = actual, columns = predicted)",
    "source": [
     "data/results/holdout_report.json :: confusion"
    ],
@@ -254,8 +254,8 @@
    }
   },
   {
-   "png": "fig5_permutation_importance.png",
-   "pdf": "fig5_permutation_importance.pdf",
+   "png": "fig_perm_logloss.png",
+   "pdf": "fig_perm_logloss.pdf",
    "png_pixels_wh": [
     3600,
     2580
@@ -269,81 +269,120 @@
     4.3
    ],
    "sha256": {
-    "fig5_permutation_importance.png": "cc5312308858327d67d7ab8d7c5478ae0a91f247093ac6c3683b1f97991ac0c1",
-    "fig5_permutation_importance.pdf": "7217ac5cb8f87b3728c8573c6a4c7110cd679822f4edc080b1f10b3017e27e1a"
+    "fig_perm_logloss.png": "8f0627a23c338b293e670f13de716e12b5c9ae42065c9a7b73848d802ce41577",
+    "fig_perm_logloss.pdf": "6c4a1c3f6363faeee8672252a6fbc510dac25b2a94582f9d8ee6a7c02fdc69b0"
    },
-   "figure": 5,
-   "title": "Permutation importance (Logistic Regression, 25 grouped folds)",
+   "figure": 4,
+   "title": "Permutation importance (Logistic Regression, log-loss, 20 permutations x 25 grouped folds)",
    "source": [
-    "data/results/xai_global.json :: permutation_importance"
+    "analysis/r11_presubmission_analyses.json :: permutation_importance"
    ],
    "plotted": {
-    "order": "descending by mean",
+    "order": "descending by mean log-loss increase",
     "features": [
      {
-      "feature": "Business_Criticality",
-      "f1_drop_mean": 0.0772,
-      "f1_drop_std": 0.0711
+      "feature": "Complexity_Level",
+      "logloss_increase_mean": 0.1563,
+      "ci95_corrected": [
+       0.07,
+       0.2425
+      ]
      },
      {
-      "feature": "Complexity_Level",
-      "f1_drop_mean": 0.0599,
-      "f1_drop_std": 0.0761
+      "feature": "Business_Criticality",
+      "logloss_increase_mean": 0.1525,
+      "ci95_corrected": [
+       0.0352,
+       0.2697
+      ]
      },
      {
       "feature": "Previous_Issues_Count",
-      "f1_drop_mean": 0.0539,
-      "f1_drop_std": 0.0627
+      "logloss_increase_mean": 0.1371,
+      "ci95_corrected": [
+       0.0345,
+       0.2398
+      ]
      },
      {
       "feature": "Has_Network_Change",
-      "f1_drop_mean": 0.0424,
-      "f1_drop_std": 0.0768
-     },
-     {
-      "feature": "Firewall_Rules_Count",
-      "f1_drop_mean": 0.0424,
-      "f1_drop_std": 0.0636
-     },
-     {
-      "feature": "External_Integrations_Count",
-      "f1_drop_mean": 0.0377,
-      "f1_drop_std": 0.0658
-     },
-     {
-      "feature": "Service_Category",
-      "f1_drop_mean": 0.0363,
-      "f1_drop_std": 0.0647
+      "logloss_increase_mean": 0.0902,
+      "ci95_corrected": [
+       -0.0018,
+       0.1822
+      ]
      },
      {
       "feature": "Has_DB_Dependency",
-      "f1_drop_mean": 0.0298,
-      "f1_drop_std": 0.0658
+      "logloss_increase_mean": 0.064,
+      "ci95_corrected": [
+       0.0208,
+       0.1071
+      ]
      },
      {
-      "feature": "Environment",
-      "f1_drop_mean": 0.0155,
-      "f1_drop_std": 0.0643
+      "feature": "Service_Category",
+      "logloss_increase_mean": 0.0549,
+      "ci95_corrected": [
+       0.0051,
+       0.1047
+      ]
      },
      {
       "feature": "Owner_Availability",
-      "f1_drop_mean": 0.0039,
-      "f1_drop_std": 0.0336
+      "logloss_increase_mean": 0.0468,
+      "ci95_corrected": [
+       0.0062,
+       0.0873
+      ]
      },
      {
-      "feature": "Has_Config_Change",
-      "f1_drop_mean": 0.0033,
-      "f1_drop_std": 0.0444
+      "feature": "External_Integrations_Count",
+      "logloss_increase_mean": 0.0404,
+      "ci95_corrected": [
+       -0.0077,
+       0.0886
+      ]
      },
      {
-      "feature": "Route_Ingress_Changed",
-      "f1_drop_mean": -0.0043,
-      "f1_drop_std": 0.0322
+      "feature": "Firewall_Rules_Count",
+      "logloss_increase_mean": 0.0357,
+      "ci95_corrected": [
+       -0.0386,
+       0.1099
+      ]
+     },
+     {
+      "feature": "Environment",
+      "logloss_increase_mean": 0.0206,
+      "ci95_corrected": [
+       -0.0096,
+       0.0508
+      ]
      },
      {
       "feature": "DB_Type",
-      "f1_drop_mean": -0.0054,
-      "f1_drop_std": 0.0712
+      "logloss_increase_mean": -0.0,
+      "ci95_corrected": [
+       -0.0324,
+       0.0323
+      ]
+     },
+     {
+      "feature": "Route_Ingress_Changed",
+      "logloss_increase_mean": -0.011,
+      "ci95_corrected": [
+       -0.0283,
+       0.0063
+      ]
+     },
+     {
+      "feature": "Has_Config_Change",
+      "logloss_increase_mean": -0.0127,
+      "ci95_corrected": [
+       -0.0293,
+       0.0038
+      ]
      }
     ]
    }
@@ -412,7 +451,7 @@
   },
   "sha256": {
    "fig7_prediction_screen.png": "77b08383f259676e6d593ff1b09bb3072e9eea9bf142c65bca2b1d8c0c200c8a",
-   "fig7_prediction_screen.pdf": "551b7e5b019db24ad28b531e7923feb3db4f764b0cc40d7f473b57e0ac745a4b"
+   "fig7_prediction_screen.pdf": "2e6c858ffa4cd1a88c73befb8626882b4b35f0062b563a71d768536e241fa612"
   }
  }
 }

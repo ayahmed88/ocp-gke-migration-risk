@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use this code, please cite the paper (preferred) or this repository."
 type: software
 title: "OCP-to-GKE migration risk prediction and mitigation recommendation: code, manifests and data dictionary"
-version: v46.2-public
-date-released: 2026-11-03
+version: v46.3-public
+date-released: 2026-11-05
 license: MIT
 doi: 10.5281/zenodo.23869306
 repository-code: "https://github.com/ayahmed88/ocp-gke-migration-risk"

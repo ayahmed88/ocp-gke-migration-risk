@@ -31,6 +31,7 @@ SRC = {
     "holdout": APP / "results/holdout_report.json",
     "xai": APP / "results/xai_global.json",
     "manifest3a": APP / "results/phase3a_manifest.json",
+    "r11": ROOT / "paper/results/r11_presubmission_analyses.json",
     }
 OUT = ROOT / "paper/figures/out"
 OUT.mkdir(parents=True, exist_ok=True)
@@ -222,7 +223,7 @@ def fig2():
     box(4, 10, 42, 22, "Selection pool", ["140 records | 70 services", "final comparison and tuning re-runs",
                                            "StratifiedGroupKFold 5×5 (seeds 42–46)",
                                            "encoding fitted per training fold"], GRAY, 4.4)
-    box(54, 10, 42, 22, "Reserved holdout", ["36 records | 18 services", "excluded from the final comparison;",
+    box(54, 10, 42, 22, "Post-selection holdout", ["36 records | 18 services", "excluded from the final comparison;",
                                               "one evaluation of the selected model"], RED, 4.4)
     arrow(43, 42, 28, 32)
     arrow(57, 42, 72, 32)
@@ -344,7 +345,7 @@ def fig4():
     ax.yaxis.label.set_y(1 - (1 - (-0.5)) / span)
     qa_figure(fig, "fig4")
     meta = save(fig, "fig4_holdout_confusion")
-    meta.update({"figure": 4, "title": "Reserved-holdout confusion matrix (rows = actual, columns = predicted)",
+    meta.update({"figure": 6, "title": "Post-selection holdout confusion matrix (rows = actual, columns = predicted)",
                  "source": [str(SRC["holdout"]) + " :: confusion"],
                  "plotted": {"labels": labels, "matrix": cm.tolist(), "row_totals": rt.tolist(),
                              "column_totals": ctot.tolist(), "grand_total": int(cm.sum()),
@@ -354,44 +355,43 @@ def fig4():
 
 # ============================================================================= Figure 5
 def fig5():
-    pi = json.loads(SRC["xai"].read_text())["permutation_importance"]
-    assert len(pi) == 13, len(pi)
-    pi = sorted(pi, key=lambda d: d["f1_drop_mean"], reverse=True)
-    feats = [d["feature"] for d in pi]
-    mu = np.array([d["f1_drop_mean"] for d in pi])
-    sd = np.array([d["f1_drop_std"] for d in pi])
-    assert len(set(feats)) == 13 and (mu < 0).sum() == 2
+    """Figure 4 of the paper (3 Nov 2026): grouped permutation importance with 20 permutations per fold, scored by the
+    increase in log-loss, with corrected 95% intervals over the 25 folds (analysis/r11_presubmission_analyses.py)."""
+    R = json.loads(SRC["r11"].read_text())["permutation_importance"]
+    assert R["_settings"]["permutations_per_fold"] == 20 and R["_settings"]["folds"] == 25
+    feats = R["_ranking"]["by_logloss"]
+    assert len(feats) == 13 and len(set(feats)) == 13
+    mu = np.array([R[f]["logloss"]["mean"] for f in feats])
+    lo = np.array([R[f]["logloss"]["ci95_corrected"][0] for f in feats])
+    hi = np.array([R[f]["logloss"]["ci95_corrected"][1] for f in feats])
+    assert feats[:3] == ["Complexity_Level", "Business_Criticality", "Previous_Issues_Count"], feats[:3]
 
     fig, ax = plt.subplots(figsize=(6.0, 4.3), layout="constrained")
     y = np.arange(len(feats))
     ax.barh(y, mu, height=0.66, color=MODEL_COL["Logistic Regression"], zorder=2)
-    ax.errorbar(mu, y, xerr=sd, fmt="none", ecolor=ERR, elinewidth=0.9, capsize=2.2, capthick=0.9, zorder=3)
+    ax.errorbar(mu, y, xerr=[mu - lo, hi - mu], fmt="none", ecolor=ERR, elinewidth=0.9, capsize=2.2, capthick=0.9, zorder=3)
     ax.axvline(0, color=INK, lw=0.6, zorder=4)
     ax.set_yticks(y, feats)
     ax.invert_yaxis()
-    lo, hi = float((mu - sd).min()), float((mu + sd).max())
-    ax.set_xlim(-0.095, 0.165)
-    assert -0.095 < lo and hi < 0.165
-    ax.set_xticks([-0.05, 0.0, 0.05, 0.10, 0.15], ["−0.05", "0.00", "0.05", "0.10", "0.15"])
+    ax.set_xlim(-0.06, 0.30)
+    assert -0.06 < float(lo.min()) and float(hi.max()) < 0.30
+    ax.set_xticks([-0.05, 0.0, 0.05, 0.10, 0.15, 0.20, 0.25], ["−0.05", "0.00", "0.05", "0.10", "0.15", "0.20", "0.25"])
     ax.set_ylim(len(feats) - 0.4, -0.6)
     ax.tick_params(axis="y", labelsize=8.5)
-    ax.set_xlabel("Macro-F1 decrease when the feature is permuted (mean ± SD, 25 folds)")
-    qa_figure(fig, "fig5")
-    # the two negative means must be drawn: bar width equals the (negative) mean, no clipping
-    neg = [p for p in ax.patches if isinstance(p, Rectangle) and p.get_width() < 0]
-    assert len(neg) == 2 and all(p.get_x() == 0 for p in neg)
-    meta = save(fig, "fig5_permutation_importance")
-    meta.update({"figure": 5, "title": "Permutation importance (Logistic Regression, 25 grouped folds)",
-                 "source": [str(SRC["xai"]) + " :: permutation_importance"],
-                 "plotted": {"order": "descending by mean", "features": [
-                     {"feature": f, "f1_drop_mean": float(m), "f1_drop_std": float(s)} for f, m, s in zip(feats, mu, sd)]}})
+    ax.set_xlabel("Increase in log-loss when the predictor is permuted\n(mean and corrected 95% interval; 20 permutations in each of 25 folds)")
+    qa_figure(fig, "fig_perm")
+    meta = save(fig, "fig_perm_logloss")
+    meta.update({"figure": 4, "title": "Permutation importance (Logistic Regression, log-loss, 20 permutations x 25 grouped folds)",
+                 "source": [str(SRC["r11"]) + " :: permutation_importance"],
+                 "plotted": {"order": "descending by mean log-loss increase", "features": [
+                     {"feature": f, "logloss_increase_mean": float(m), "ci95_corrected": [float(a), float(b)]} for f, m, a, b in zip(feats, mu, lo, hi)]}})
     MANIFEST["figures"].append(meta)
 
 
 # ============================================================================= contact sheet
 def contact_sheet():
     stems = ["fig1_class_by_environment", "fig2_protocol", "fig3_seed_stability",
-             "fig4_holdout_confusion", "fig5_permutation_importance"]
+             "fig_perm_logloss", "fig4_holdout_confusion"]
     ims = [Image.open(OUT / f"{s}.png").convert("RGB") for s in stems]
     h_px = 700
     small = [im.resize((round(im.width * h_px / im.height), h_px), Image.LANCZOS) for im in ims]
