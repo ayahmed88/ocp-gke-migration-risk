@@ -1,0 +1,630 @@
+{
+ "scope": "selection pool (140 records, 70 services), official 5x5 grouped folds, seed base 42; holdout closed",
+ "date": "2026-11-05",
+ "gate_official_cv": {
+  "Logistic Regression": 0.6339526050735212,
+  "Random Forest": 0.5386608264991757,
+  "XGBoost": 0.5915302092371963
+ },
+ "table5_multiplicity": {
+  "tests": [
+   {
+    "comparator": "XGBoost",
+    "metric": "macro-F1",
+    "p": 0.5407,
+    "ci95_corrected": [
+     -0.0987,
+     0.1835
+    ],
+    "mean_diff": 0.042422,
+    "holm_18": 1.0,
+    "bh_18": 0.6488,
+    "holm_9_within_metric": 1.0,
+    "bh_9_within_metric": 0.6952
+   },
+   {
+    "comparator": "XGBoost",
+    "metric": "High-vs-rest ROC-AUC",
+    "p": 0.2374,
+    "ci95_corrected": [
+     -0.0183,
+     0.0705
+    ],
+    "mean_diff": 0.026078,
+    "holm_18": 1.0,
+    "bh_18": 0.3287,
+    "holm_9_within_metric": 0.7122,
+    "bh_9_within_metric": 0.3052
+   },
+   {
+    "comparator": "Random Forest",
+    "metric": "macro-F1",
+    "p": 0.1578,
+    "ci95_corrected": [
+     -0.0396,
+     0.2302
+    ],
+    "mean_diff": 0.095292,
+    "holm_18": 1.0,
+    "bh_18": 0.2647,
+    "holm_9_within_metric": 0.789,
+    "bh_9_within_metric": 0.2647
+   },
+   {
+    "comparator": "Random Forest",
+    "metric": "High-vs-rest ROC-AUC",
+    "p": 0.4234,
+    "ci95_corrected": [
+     -0.0246,
+     0.0566
+    ],
+    "mean_diff": 0.016021,
+    "holm_18": 1.0,
+    "bh_18": 0.5444,
+    "holm_9_within_metric": 0.8468,
+    "bh_9_within_metric": 0.4763
+   },
+   {
+    "comparator": "LR: documented criteria + Previous_Issues_Count",
+    "metric": "macro-F1",
+    "p": 0.706,
+    "ci95_corrected": [
+     -0.1235,
+     0.085
+    ],
+    "mean_diff": -0.019283,
+    "holm_18": 1.0,
+    "bh_18": 0.7475,
+    "holm_9_within_metric": 1.0,
+    "bh_9_within_metric": 0.7942
+   },
+   {
+    "comparator": "LR: documented criteria + Previous_Issues_Count",
+    "metric": "High-vs-rest ROC-AUC",
+    "p": 0.6032,
+    "ci95_corrected": [
+     -0.0251,
+     0.0422
+    ],
+    "mean_diff": 0.008585,
+    "holm_18": 1.0,
+    "bh_18": 0.6786,
+    "holm_9_within_metric": 0.8468,
+    "bh_9_within_metric": 0.6032
+   },
+   {
+    "comparator": "LR: documented criteria (5 planning attributes)",
+    "metric": "macro-F1",
+    "p": 0.9117,
+    "ci95_corrected": [
+     -0.1206,
+     0.1345
+    ],
+    "mean_diff": 0.006929,
+    "holm_18": 1.0,
+    "bh_18": 0.9117,
+    "holm_9_within_metric": 1.0,
+    "bh_9_within_metric": 0.9117
+   },
+   {
+    "comparator": "LR: documented criteria (5 planning attributes)",
+    "metric": "High-vs-rest ROC-AUC",
+    "p": 0.1695,
+    "ci95_corrected": [
+     -0.0277,
+     0.1487
+    ],
+    "mean_diff": 0.060505,
+    "holm_18": 1.0,
+    "bh_18": 0.2647,
+    "holm_9_within_metric": 0.678,
+    "bh_9_within_metric": 0.2543
+   },
+   {
+    "comparator": "LR: rule-trigger count",
+    "metric": "macro-F1",
+    "p": 0.1765,
+    "ci95_corrected": [
+     -0.0457,
+     0.235
+    ],
+    "mean_diff": 0.094689,
+    "holm_18": 1.0,
+    "bh_18": 0.2647,
+    "holm_9_within_metric": 0.789,
+    "bh_9_within_metric": 0.2647
+   },
+   {
+    "comparator": "LR: rule-trigger count",
+    "metric": "High-vs-rest ROC-AUC",
+    "p": 0.0172,
+    "ci95_corrected": [
+     0.0209,
+     0.195
+    ],
+    "mean_diff": 0.107929,
+    "holm_18": 0.204,
+    "bh_18": 0.036,
+    "holm_9_within_metric": 0.1032,
+    "bh_9_within_metric": 0.0324
+   },
+   {
+    "comparator": "LR: Complexity + Criticality",
+    "metric": "macro-F1",
+    "p": 0.017,
+    "ci95_corrected": [
+     0.0369,
+     0.341
+    ],
+    "mean_diff": 0.188952,
+    "holm_18": 0.204,
+    "bh_18": 0.036,
+    "holm_9_within_metric": 0.102,
+    "bh_9_within_metric": 0.0383
+   },
+   {
+    "comparator": "LR: Complexity + Criticality",
+    "metric": "High-vs-rest ROC-AUC",
+    "p": 0.0045,
+    "ci95_corrected": [
+     0.065,
+     0.3153
+    ],
+    "mean_diff": 0.190145,
+    "holm_18": 0.063,
+    "bh_18": 0.0144,
+    "holm_9_within_metric": 0.0315,
+    "bh_9_within_metric": 0.0135
+   },
+   {
+    "comparator": "LR: Complexity_Level only",
+    "metric": "macro-F1",
+    "p": 0.0048,
+    "ci95_corrected": [
+     0.0825,
+     0.4097
+    ],
+    "mean_diff": 0.246109,
+    "holm_18": 0.063,
+    "bh_18": 0.0144,
+    "holm_9_within_metric": 0.0336,
+    "bh_9_within_metric": 0.0144
+   },
+   {
+    "comparator": "LR: Complexity_Level only",
+    "metric": "High-vs-rest ROC-AUC",
+    "p": 0.0004,
+    "ci95_corrected": [
+     0.1132,
+     0.34
+    ],
+    "mean_diff": 0.226574,
+    "holm_18": 0.0068,
+    "bh_18": 0.003,
+    "holm_9_within_metric": 0.0036,
+    "bh_9_within_metric": 0.0032
+   },
+   {
+    "comparator": "LR: Business_Criticality only",
+    "metric": "macro-F1",
+    "p": 0.0005,
+    "ci95_corrected": [
+     0.1418,
+     0.4404
+    ],
+    "mean_diff": 0.291096,
+    "holm_18": 0.008,
+    "bh_18": 0.003,
+    "holm_9_within_metric": 0.004,
+    "bh_9_within_metric": 0.0023
+   },
+   {
+    "comparator": "LR: Business_Criticality only",
+    "metric": "High-vs-rest ROC-AUC",
+    "p": 0.0007,
+    "ci95_corrected": [
+     0.1183,
+     0.389
+    ],
+    "mean_diff": 0.253665,
+    "holm_18": 0.0105,
+    "bh_18": 0.0032,
+    "holm_9_within_metric": 0.0056,
+    "bh_9_within_metric": 0.0032
+   },
+   {
+    "comparator": "LR: Previous_Issues_Count only",
+    "metric": "macro-F1",
+    "p": 0.0003,
+    "ci95_corrected": [
+     0.161,
+     0.4634
+    ],
+    "mean_diff": 0.312158,
+    "holm_18": 0.0054,
+    "bh_18": 0.003,
+    "holm_9_within_metric": 0.0027,
+    "bh_9_within_metric": 0.0023
+   },
+   {
+    "comparator": "LR: Previous_Issues_Count only",
+    "metric": "High-vs-rest ROC-AUC",
+    "p": 0.018,
+    "ci95_corrected": [
+     0.0269,
+     0.2596
+    ],
+    "mean_diff": 0.14322,
+    "holm_18": 0.204,
+    "bh_18": 0.036,
+    "holm_9_within_metric": 0.1032,
+    "bh_9_within_metric": 0.0324
+   }
+  ],
+  "n_tests": 18,
+  "significant_holm_18": [
+   "LR: Complexity_Level only | High-vs-rest ROC-AUC",
+   "LR: Business_Criticality only | macro-F1",
+   "LR: Business_Criticality only | High-vs-rest ROC-AUC",
+   "LR: Previous_Issues_Count only | macro-F1"
+  ],
+  "significant_bh_18": [
+   "LR: rule-trigger count | High-vs-rest ROC-AUC",
+   "LR: Complexity + Criticality | macro-F1",
+   "LR: Complexity + Criticality | High-vs-rest ROC-AUC",
+   "LR: Complexity_Level only | macro-F1",
+   "LR: Complexity_Level only | High-vs-rest ROC-AUC",
+   "LR: Business_Criticality only | macro-F1",
+   "LR: Business_Criticality only | High-vs-rest ROC-AUC",
+   "LR: Previous_Issues_Count only | macro-F1",
+   "LR: Previous_Issues_Count only | High-vs-rest ROC-AUC"
+  ],
+  "note": "p values are the corrected resampled t-test values of r11_presubmission_analyses.json (rounded to 4 decimals there); Holm controls the family-wise error rate, Benjamini-Hochberg the false discovery rate"
+ },
+ "table7_additions": {
+  "label_High_as_policy (ceiling set by the label construction)": {
+   "flag_rate": 0.557,
+   "flagged": 78,
+   "failures_captured": 0.958,
+   "failures_captured_n": 23,
+   "delays_captured": 0.667,
+   "delays_captured_n": 40,
+   "any_problem_captured": 0.75,
+   "any_problem_precision": 0.808
+  },
+  "criteria-only LR (5 attributes) predicts High": {
+   "flag_rate": {
+    "mean": 0.544,
+    "min": 0.5,
+    "max": 0.586
+   },
+   "flagged": {
+    "mean": 76.2,
+    "min": 70.0,
+    "max": 82.0
+   },
+   "failures_captured": {
+    "mean": 0.75,
+    "min": 0.708,
+    "max": 0.792
+   },
+   "failures_captured_n": {
+    "mean": 18.0,
+    "min": 17.0,
+    "max": 19.0
+   },
+   "delays_captured": {
+    "mean": 0.617,
+    "min": 0.55,
+    "max": 0.7
+   },
+   "delays_captured_n": {
+    "mean": 37.0,
+    "min": 33.0,
+    "max": 42.0
+   },
+   "any_problem_captured": {
+    "mean": 0.655,
+    "min": 0.595,
+    "max": 0.726
+   },
+   "any_problem_precision": {
+    "mean": 0.721,
+    "min": 0.711,
+    "max": 0.744
+   }
+  },
+  "LR13 predicts High (reference)": {
+   "flag_rate": {
+    "mean": 0.554,
+    "min": 0.529,
+    "max": 0.586
+   },
+   "flagged": {
+    "mean": 77.6,
+    "min": 74.0,
+    "max": 82.0
+   },
+   "failures_captured": {
+    "mean": 0.833,
+    "min": 0.792,
+    "max": 0.875
+   },
+   "failures_captured_n": {
+    "mean": 20.0,
+    "min": 19.0,
+    "max": 21.0
+   },
+   "delays_captured": {
+    "mean": 0.553,
+    "min": 0.5,
+    "max": 0.6
+   },
+   "delays_captured_n": {
+    "mean": 33.2,
+    "min": 30.0,
+    "max": 36.0
+   },
+   "any_problem_captured": {
+    "mean": 0.633,
+    "min": 0.595,
+    "max": 0.679
+   },
+   "any_problem_precision": {
+    "mean": 0.685,
+    "min": 0.667,
+    "max": 0.705
+   }
+  },
+  "rule-trigger count >= 3 (reference)": {
+   "flag_rate": 0.507,
+   "flagged": 71,
+   "failures_captured": 0.708,
+   "failures_captured_n": 17,
+   "delays_captured": 0.567,
+   "delays_captured_n": 34,
+   "any_problem_captured": 0.607,
+   "any_problem_precision": 0.718
+  },
+  "bootstrap_differences": {
+   "failures": {
+    "point_mean_over_repeats": 0.125,
+    "ci95": [
+     -0.083,
+     0.348
+    ],
+    "share_of_draws_le_0": 0.124,
+    "draws": 5000
+   },
+   "delays": {
+    "point_mean_over_repeats": -0.013,
+    "ci95": [
+     -0.146,
+     0.118
+    ],
+    "share_of_draws_le_0": 0.586,
+    "draws": 5000
+   },
+   "failures_crit": {
+    "point_mean_over_repeats": 0.083,
+    "ci95": [
+     -0.056,
+     0.24
+    ],
+    "share_of_draws_le_0": 0.126,
+    "draws": 5000
+   },
+   "note": "5000 resamples of the 70 pool services with replacement (seed 20261105); each draw averages the difference over the five repeats of seed base 42; 'failures' = LR13-High minus rule count >= 3, 'failures_crit' = LR13-High minus criteria-only-High, 'delays' = LR13-High minus rule count >= 3"
+  },
+  "direct_failure_model": {
+   "LR13 trained on failure": {
+    "auc_fail": {
+     "mean": 0.681789,
+     "sd": 0.09539,
+     "sd_pop": 0.093462,
+     "n": 25
+    },
+    "ap_fail": {
+     "mean": 0.3574,
+     "sd": 0.114054,
+     "sd_pop": 0.111749,
+     "n": 25
+    }
+   },
+   "rule count trained on failure": {
+    "auc_fail": {
+     "mean": 0.649985,
+     "sd": 0.121919,
+     "sd_pop": 0.119456,
+     "n": 25
+    },
+    "ap_fail": {
+     "mean": 0.282815,
+     "sd": 0.103867,
+     "sd_pop": 0.101768,
+     "n": 25
+    }
+   },
+   "label-trained LR13 P(High)": {
+    "auc_fail": {
+     "mean": 0.725571,
+     "sd": 0.085476,
+     "sd_pop": 0.083749,
+     "n": 25
+    },
+    "ap_fail": {
+     "mean": 0.369482,
+     "sd": 0.120546,
+     "sd_pop": 0.118111,
+     "n": 25
+    }
+   },
+   "raw rule count": {
+    "auc_fail": {
+     "mean": 0.649985,
+     "sd": 0.121919,
+     "sd_pop": 0.119456,
+     "n": 25
+    },
+    "ap_fail": {
+     "mean": 0.282815,
+     "sd": 0.103867,
+     "sd_pop": 0.101768,
+     "n": 25
+    }
+   },
+   "folds_with_defined_auc": 25,
+   "LR13-fail minus rule-count-fail (AUC)": {
+    "mean": 0.031804,
+    "sd": 0.157531,
+    "sd_pop": 0.154348,
+    "ahead": 15,
+    "tied": 0,
+    "behind": 10,
+    "p_corrected": 0.711,
+    "ci95_corrected": [
+     -0.1433,
+     0.2069
+    ]
+   },
+   "LR13-fail minus raw rule count (AUC)": {
+    "mean": 0.031804,
+    "sd": 0.157531,
+    "sd_pop": 0.154348,
+    "ahead": 15,
+    "tied": 0,
+    "behind": 10,
+    "p_corrected": 0.711,
+    "ci95_corrected": [
+     -0.1433,
+     0.2069
+    ]
+   },
+   "label-trained P(High) minus raw rule count (AUC)": {
+    "mean": 0.075586,
+    "sd": 0.129878,
+    "sd_pop": 0.127254,
+    "ahead": 18,
+    "tied": 1,
+    "behind": 6,
+    "p_corrected": 0.2906,
+    "ci95_corrected": [
+     -0.0688,
+     0.2199
+    ]
+   },
+   "LR13-fail minus label-trained P(High) (AUC)": {
+    "mean": -0.043782,
+    "sd": 0.108785,
+    "sd_pop": 0.106587,
+    "ahead": 8,
+    "tied": 0,
+    "behind": 17,
+    "p_corrected": 0.4621,
+    "ci95_corrected": [
+     -0.1647,
+     0.0771
+    ]
+   },
+   "LR13-fail flags at the LR13-High flag rate": {
+    "flag_rate": {
+     "mean": 0.554,
+     "min": 0.529,
+     "max": 0.586
+    },
+    "flagged": {
+     "mean": 77.6,
+     "min": 74.0,
+     "max": 82.0
+    },
+    "failures_captured": {
+     "mean": 0.758,
+     "min": 0.708,
+     "max": 0.833
+    },
+    "failures_captured_n": {
+     "mean": 18.2,
+     "min": 17.0,
+     "max": 20.0
+    },
+    "delays_captured": {
+     "mean": 0.593,
+     "min": 0.567,
+     "max": 0.633
+    },
+    "delays_captured_n": {
+     "mean": 35.6,
+     "min": 34.0,
+     "max": 38.0
+    },
+    "any_problem_captured": {
+     "mean": 0.641,
+     "min": 0.619,
+     "max": 0.667
+    },
+    "any_problem_precision": {
+     "mean": 0.693,
+     "min": 0.683,
+     "max": 0.703
+    }
+   },
+   "prevalence_fail_pool": 0.171
+  }
+ },
+ "spearman_from_r11": {
+  "Migration_Duration_Hours": {
+   "avgOOF_P_High": [
+    0.3703,
+    0.0
+   ],
+   "avgOOF_expected_level": [
+    0.3747,
+    0.0
+   ],
+   "rule_trigger_count": [
+    0.3882,
+    0.0
+   ],
+   "expert_label": [
+    0.4545,
+    0.0
+   ]
+  },
+  "Validation_Attempts": {
+   "avgOOF_P_High": [
+    0.3182,
+    0.0001
+   ],
+   "avgOOF_expected_level": [
+    0.3299,
+    0.0001
+   ],
+   "rule_trigger_count": [
+    0.4138,
+    0.0
+   ],
+   "expert_label": [
+    0.4184,
+    0.0
+   ]
+  },
+  "Cutover_Delay_Days": {
+   "avgOOF_P_High": [
+    0.312,
+    0.0002
+   ],
+   "avgOOF_expected_level": [
+    0.3255,
+    0.0001
+   ],
+   "rule_trigger_count": [
+    0.2731,
+    0.0011
+   ],
+   "expert_label": [
+    0.5244,
+    0.0
+   ]
+  }
+ }
+}
