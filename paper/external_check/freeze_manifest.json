@@ -1,0 +1,81 @@
+{
+  "frozen_at_utc": "2026-11-06T21:57:15+00:00",
+  "protocol": "paper/external_check/PROTOCOL.md",
+  "protocol_sha256": "ed71b086f4c32a276e6f025adbafaa3c8e2b04bf60785d701a715d9988eb88b1",
+  "input_file": "Dataset_15_Columns.xlsx",
+  "input_sha256": "fe87ee53bcaab11d29e7da95968764352470d765e60258be19afa52b2268a1d0",
+  "n_records": 14,
+  "n_services": 7,
+  "predictions_file": "predictions_frozen.csv",
+  "predictions_sha256": "601c6be21574ae334a1967d866be6d0646fea31e339e599683a388bd19726108",
+  "research_workbook": "OCP_GKE_Migration_Risk_Dataset_REAL_176.xlsx",
+  "research_workbook_sha256": "e5d881298f97cfeb9f207ca781ca9977f646d79343095d4c67fc3c123627ca6c",
+  "research_workbook_is_synthetic": false,
+  "serving_fit": "all 176 records, class_weight balanced, declared configurations (backend/models/factory.py), seed 42",
+  "models": {
+    "LR13": "LogisticRegression(class_weight='balanced', max_iter=5000, random_state=42)",
+    "RF13": "RandomForestClassifier(class_weight='balanced', n_estimators=300, n_jobs=-1,\n                       random_state=42)",
+    "XGB13": "XGBClassifier(base_score=None, booster=None, callbacks=None,\n              colsample_bylevel=None, colsample_bynode=None,\n              colsample_bytree=0.9, device=None, early_stopping_rounds=None,\n              enable_categorical=True, eval_metric='mlogloss',\n              feature_types=None, feature_weights=None, gamma=None,\n              grow_policy=None, importance_type=None,\n              interaction_constraints=None, learning_rate=0.1, max_bin=None,\n              max_cat_threshold=None, max_cat_to_onehot=None,\n              max_delta_step=None, max_depth=4, max_leaves=None,\n              min_child_weight=None, missing=nan, monotone_constraints=None,\n              multi_strategy=None, n_estimators=300, n_jobs=-1,\n              num_parallel_tree=None, ...)",
+    "LR_rulecount": "LogisticRegression(class_weight='balanced', max_iter=5000, random_state=42)",
+    "LR_criteria5": "LogisticRegression(class_weight='balanced', max_iter=5000, random_state=42)"
+  },
+  "features_13": [
+    "Environment",
+    "Service_Category",
+    "Business_Criticality",
+    "Complexity_Level",
+    "Has_DB_Dependency",
+    "DB_Type",
+    "Has_Network_Change",
+    "Firewall_Rules_Count",
+    "External_Integrations_Count",
+    "Route_Ingress_Changed",
+    "Has_Config_Change",
+    "Owner_Availability",
+    "Previous_Issues_Count"
+  ],
+  "criteria5": [
+    "Complexity_Level",
+    "Owner_Availability",
+    "Has_DB_Dependency",
+    "Has_Network_Change",
+    "External_Integrations_Count"
+  ],
+  "pre_exec_rules_counted": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R6"
+  ],
+  "identifiers": {
+    "study_ids_assigned": true,
+    "original_ids_overlapping_176_extract": [
+      "MIG-089",
+      "MIG-090",
+      "MIG-091",
+      "MIG-092",
+      "MIG-093",
+      "MIG-094",
+      "MIG-095"
+    ],
+    "private_mapping_file": "id_mapping_private.csv",
+    "service_codes": [
+      "SVC-089",
+      "SVC-090",
+      "SVC-091",
+      "SVC-092",
+      "SVC-093",
+      "SVC-094",
+      "SVC-095"
+    ]
+  },
+  "categories_unseen_in_176_extract": {},
+  "repository_version": "v46.3-public",
+  "git_commit": null,
+  "python": "3.14.6",
+  "scikit_learn": "1.8.0",
+  "xgboost": "3.3.0",
+  "numpy": "2.5.1",
+  "pandas": "3.0.2"
+}
