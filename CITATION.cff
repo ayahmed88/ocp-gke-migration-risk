@@ -9,6 +9,12 @@ doi: 10.5281/zenodo.23869306
 repository-code: "https://github.com/ayahmed88/ocp-gke-migration-risk"
 identifiers:
   - type: doi
+    value: 10.5281/zenodo.24024285
+    description: "Zenodo archive of release v46.4-public"
+  - type: doi
+    value: 10.5281/zenodo.23982143
+    description: "Zenodo archive of release v46.3-public"
+  - type: doi
     value: 10.5281/zenodo.23871407
     description: "Zenodo archive of release v46.1-public"
   - type: doi
