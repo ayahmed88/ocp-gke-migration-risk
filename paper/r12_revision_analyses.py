@@ -1,4 +1,4 @@
-"""Revision analyses (5 Nov 2026) for the decision-letter items on the two headline comparisons:
+"""Additional analyses (5 Nov 2026) on the two headline comparisons of the manuscript:
 - Table 5: Holm and Benjamini-Hochberg adjustments of the 18 corrected-test p values (from r11_presubmission_analyses.json);
 - Table 7: the label itself as a flagging policy (ceiling set by the label construction), the criteria-only model at its own flag
   rate, a service-level bootstrap of the LR-minus-rule-count difference in captured failures and delays, and a Logistic Regression
