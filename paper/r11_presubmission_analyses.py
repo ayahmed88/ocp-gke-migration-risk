@@ -340,7 +340,7 @@ D = pd.DataFrame(draws)
 def ci(s): s = s.dropna(); return [round(float(np.percentile(s, 2.5)), 3), round(float(np.percentile(s, 97.5)), 3), int(len(s))]
 skipped = int(D.auc.isna().sum())
 assert skipped == 550, skipped
-assert [round(v, 2) for v in ci(D.f1_zero)[:2]] == [0.31, 0.78], ci(D.f1_zero)   # published interval 0.31 to 0.78 (Table 8); the original draw in reviewer_analyses.py gave 0.312-0.776, this one 0.312-0.777
+assert [round(v, 2) for v in ci(D.f1_zero)[:2]] == [0.31, 0.78], ci(D.f1_zero)   # published interval 0.31 to 0.78 (Table 8); the original draw in main_analyses.py gave 0.312-0.776, this one 0.312-0.777
 k_low = int(len(np.unique(svc[yt_h == 0])))
 HO = {"gate": {"auc_draws_skipped": skipped, "f1_interval_all_draws": ci(D.f1_zero)},
       "low_records": int((yt_h == 0).sum()), "services_carrying_low": k_low,

@@ -1,5 +1,5 @@
 from pathlib import Path
-"""Table 5 paired differences with a single SD convention (sample SD, ddof=1), same folds/models as reviewer_analyses.py."""
+"""Table 5 paired differences with a single SD convention (sample SD, ddof=1), same folds/models as main_analyses.py."""
 import sys, json
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np, pandas as pd

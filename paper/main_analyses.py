@@ -1,9 +1,9 @@
-"""Reviewer-requested analyses (basket B) on the official v45 pipeline.
+"""Additional analyses (basket B) for the manuscript, on the official v45 pipeline.
 
 Runs on the pinned environment. Re-uses the app's pipeline, vault carve and model
 factory unchanged. Gate: the LR fold loop must reproduce the official 25-fold
 macro-F1 exactly, and the holdout refit must reproduce the locked confusion matrix.
-Writes analysis/reviewer_analyses.json and figure mocks to analysis/figs/.
+Writes results/main_analyses.json and figure mocks to figs/.
 """
 import sys, json, itertools
 from pathlib import Path
@@ -316,7 +316,7 @@ B9["LR_holdout"] = {"qwk": round(cohen_kappa_score(yt, pe, labels=[0, 1, 2], wei
                     "mean_abs_class_distance": round(float(np.mean(np.abs(yt - pe))), 4)}
 R["B9"] = B9
 
-(OUT / "reviewer_analyses.json").write_text(json.dumps(R, indent=1, default=float))
+(OUT / "main_analyses.json").write_text(json.dumps(R, indent=1, default=float))
 
 # ------------------------------------------------------- figure mock: class by environment
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt

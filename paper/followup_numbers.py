@@ -1,5 +1,5 @@
 from pathlib import Path
-"""Numbers needed for the round-2 fixes: Dev-subset Low counts per fold; Owner_Availability paired-difference interval and win/tie/loss."""
+"""Follow-up numbers for the manuscript: Dev-subset Low counts per fold; Owner_Availability paired-difference interval and win/tie/loss."""
 import sys, json
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np, pandas as pd
@@ -31,4 +31,4 @@ out = {"low_dev_per_fold": low_dev, "folds_with_zero_low_dev": int(sum(1 for x i
        "owner_diff_mean": round(float(d.mean()), 4), "owner_diff_sd": round(float(d.std(ddof=1)), 4),
        "owner_ci95_nb": [round(float(d.mean() - tcrit * se), 3), round(float(d.mean() + tcrit * se), 3)],
        "wins_13": int((d > 1e-12).sum()), "ties": int((abs(d) <= 1e-12).sum()), "losses_13": int((d < -1e-12).sum())}
-print(json.dumps(out, indent=1)); json.dump(out, open("r2_fixes_numbers.json", "w"), indent=1)
+print(json.dumps(out, indent=1)); json.dump(out, open("followup_numbers.json", "w"), indent=1)

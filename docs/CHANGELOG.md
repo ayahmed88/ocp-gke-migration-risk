@@ -1,3 +1,6 @@
+## v46.5-public (2026-11-07)
+- `paper/`: analysis scripts and their result files renamed for clarity (`main_analyses`, `followup_numbers`) and docstrings reworded; `paper/README.md` updated accordingly. README holdout wording aligned with the paper (post-selection holdout). Version metadata. No change to any experiment, model, rule or result value.
+
 ## v46.4-public (2026-11-07)
 - `paper/r12_revision_analyses.py` and `paper/results/r12_revision_analyses.json`: Table 5 Holm and Benjamini-Hochberg adjustments; Table 7 label ceiling, criteria-only row, rule count >= 3, service-level bootstrap of the LR-minus-rule-count differences, failure-trained model (Sections 4.2-4.3); selection pool only, holdout closed.
 - `paper/external_check/`: blind external check on the 14 records of seven services added to the program after the extract (Section 4.9): pre-specified protocol and frozen manifest committed as 14d6d1c before the ratings were requested, aggregate results table committed as a443ea8, and the two scripts (`stage1_freeze_predictions.py` refuses any input carrying a label or execution-phase column; `stage2_compare.py` verifies the frozen file's SHA-256 before comparing). The 14 records are withheld with the record-level data.
@@ -15,7 +18,7 @@
 - Metadata release: the corresponding author's surname is corrected to Shommo in CITATION.cff, LICENSE, README and the English interface footer (source and built bundle), and her ORCID is added to CITATION.cff; version metadata updated. No change to any code path, experiment, model, rule or result file.
 
 ## v46.1-public (2026-11-02)
-- Data dictionary: Risk_Level and Outcome codebook; Previous_Issues_Count defined per environment. `paper/` folder: re-check, Table 5 SD and round-2 analysis scripts with their result files. README and CITATION.cff with the Zenodo DOIs. No change to any experiment, model, rule or result file of the official run.
+- Data dictionary: Risk_Level and Outcome codebook; Previous_Issues_Count defined per environment. `paper/` folder: re-check, Table 5 SD and follow-up analysis scripts with their result files. README and CITATION.cff with the Zenodo DOIs. No change to any experiment, model, rule or result file of the official run.
 
 ## v46-public (2026-11-01)
 - Public release for the journal submission. Real dataset, processed table and record-level exports removed; synthetic example workbook added (`data/example/`); dataset path override `MRA_DATASET_XLSX`; evidence tests skip on synthetic data; `paper/` folder with the analysis and figure scripts; README, LICENSE (MIT), CITATION.cff, data dictionary. No change to any experiment, model, rule or result file.
@@ -70,7 +73,7 @@ and in the delivery message.
   correct) and a permanent guard test (test_rules_evidence.py) now pins
   every quoted figure to a live recount, so evidence lines can never
   silently drift from the data again.
-- Methodology-review follow-up (two external reviewer claims verified
+- Methodology-review follow-up (two methodology-review points verified
   in-repo): (1) Tuning scope — the July Phase-4A study predates the carve
   protocol and ran on all 176 records; verified true, with no effect on
   model choice or deployed parameters (its outcome was to RETAIN the

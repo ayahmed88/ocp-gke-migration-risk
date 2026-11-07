@@ -35,4 +35,4 @@ out={"cv_QA_rows":{"LR13":[round(np.mean(lr_qa),4),round(np.std(lr_qa),4)],"DevL
        "DevLabelCopy":round(f1_score(yt[q],[hd[s] for s in gh[q]],average="macro",zero_division=0),4)},
      "holdout_Dev_rows_LR13":round(f1_score(yt[~q],pe[~q],average="macro",zero_division=0),4)}
 print(json.dumps(out,indent=1))
-R=json.load(open("reviewer_analyses.json")); R["B2b_QA_rows_LR_vs_DevCopy"]=out; json.dump(R,open("reviewer_analyses.json","w"),indent=1)
+R=json.load(open("main_analyses.json")); R["B2b_QA_rows_LR_vs_DevCopy"]=out; json.dump(R,open("main_analyses.json","w"),indent=1)
