@@ -1,6 +1,6 @@
 # External check — aggregate results (stage 2, run 7 Nov 2026; predictions frozen 2026-11-06T21:57:15 UTC, sha256 601c6be2…)
 
-Pre-specified quantities of PROTOCOL.md Section 3. Counts only; no record-level information.
+Quantities of PROTOCOL.md Section 3 (counts only; no record-level information). Pre-specified interval: the Clopper-Pearson interval of the LR row only; the intervals shown for the other models are a by-product of the script and were not pre-specified.
 
 | Model or policy | 1. Predicted level equals recorded level (of 14) | 2. High versus rest |
 |---|---|---|

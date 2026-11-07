@@ -6,7 +6,7 @@ Code, experiment manifests, result files, data dictionary and a synthetic exampl
 
 > Shommo G, Abdelgader AY. *Predicting Kubernetes Cloud Migration Risk from Enterprise OCP-to-GKE Records: A Machine-Learning and Mitigation Recommendation Framework.* Submitted to the Journal of Cloud Computing, 2026.
 
-The study asks whether 13 attributes recorded at the planning stage of a service migration predict the risk level that engineers assigned after the migration (Low / Medium / High), compares Logistic Regression, Random Forest and XGBoost under repeated service-grouped cross-validation and on a reserved holdout, and links the prediction to eight inspectable mitigation rules. A bilingual (English / Arabic) decision-support prototype implements the pipeline, the models and the rules.
+The study asks whether 13 attributes recorded at the planning stage of a service migration predict the risk level that engineers assigned after the migration (Low / Medium / High), compares Logistic Regression, Random Forest and XGBoost under repeated service-grouped cross-validation and on a post-selection holdout, and links the prediction to eight inspectable mitigation rules. A bilingual (English / Arabic) decision-support prototype implements the pipeline, the models and the rules.
 
 ## What is in the repository
 
@@ -25,7 +25,7 @@ The real dataset is **not** included (see `data/README.md`). Without it, the cod
 
 ## Run
 
-Python 3.11-3.13. The study used Python 3.13.16, scikit-learn 1.8.0, XGBoost 3.3.0 and pandas 3.0.2 (`paper/requirements-pinned.txt`); other versions run but may change Random Forest results slightly.
+Python 3.11-3.13 (the external check of paper Section 4.9 was run under Python 3.14.6 with the same pinned libraries; see paper/external_check/README.md). The study used Python 3.13.16, scikit-learn 1.8.0, XGBoost 3.3.0 and pandas 3.0.2 (`paper/requirements-pinned.txt`); other versions run but may change Random Forest results slightly.
 
 ```bash
 pip install -r requirements.txt
@@ -43,7 +43,7 @@ pytest -q                                        # tests that do not need the re
 
 ## How the holdout was handled
 
-The reserved holdout is the seed-42 service-grouped split (18 services, 36 records) produced by `backend/experiments/split.py`. Sequence of events, as dated in the paper's Table A2: (1) an initial comparison round, the original tuning study and a feature screen used all 176 records; (2) the protocol was then changed to reserve the holdout, and every selection experiment was re-run on the 140-record pool; (3) the selected model (Logistic Regression) was evaluated once on the holdout on 11 July 2026; (4) the additional analyses of the November 2026 manuscript (`paper/r11_presubmission_analyses.py`) were run in October-November 2026 on the pool only, with the holdout result already known. The holdout services had taken part in step (1), so the holdout result is a post-selection check, not an independent confirmation; the application's interface and this changelog's older entries once described it as fully independent, and that wording was corrected in v46.3-public. The paper describes the history in Section 3.4 and its implications in Section 5.3.
+The reserved holdout is the seed-42 service-grouped split (18 services, 36 records) produced by `backend/experiments/split.py`. Sequence of events, as dated in the paper's Table A2: (1) an initial comparison round, the original tuning study and a feature screen used all 176 records; (2) the protocol was then changed to reserve the holdout and the selected model (Logistic Regression), fitted on the 140-record pool, was evaluated once on the holdout on 11 July 2026; (3) in October 2026, with the holdout result known, the model comparison, the seed study and the tuning study were re-run within the pool only (paper Section 3.4 and Table A2 are the authoritative account); (4) the additional analyses of the November 2026 manuscript (`paper/r11_presubmission_analyses.py`) were run in October-November 2026 on the pool only, with the holdout result already known. The holdout services had taken part in step (1), so the holdout result is a post-selection check, not an independent confirmation; the application's interface and this changelog's older entries once described it as fully independent, and that wording was corrected in v46.3-public. The paper describes the history in Section 3.4 and its implications in Section 5.3.
 
 ## Blind external check (paper Section 4.9)
 
